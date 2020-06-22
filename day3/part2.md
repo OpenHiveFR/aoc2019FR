@@ -1,4 +1,4 @@
-# --- Partie 2 ---
+# --- Partie Deux ---
 
 Il se trouve que le circuit est très sensible au rythme ! Vous allez en fait avoir besoin de *minimiser le délai du signal*.
 

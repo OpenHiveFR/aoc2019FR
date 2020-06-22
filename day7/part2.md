@@ -1,4 +1,4 @@
-# --- Partie 2 --- 
+# --- Partie Deux --- 
 
 Ça ne va pas. Dans cette configuration, les amplificateurs ne peuvent pas produire un signal assez grand signal en sortie pour produire la poussée dont vous aurez besoin. Les elfes vous parlent rapidement de recâbler les amplificateurs pour former une *boucle de rétroaction* :
 

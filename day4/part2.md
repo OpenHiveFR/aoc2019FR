@@ -1,4 +1,4 @@
-# --- Partie 2 ---
+# --- Partie Deux ---
 
 Un elfe vient de se rappeler un détail important supplémentaire : les deux chiffres adjacents identiques *ne font pas partie d'un plus grand ensemble de chiffres identiques*.
 

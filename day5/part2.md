@@ -1,4 +1,4 @@
-# --- Partie 2 ---
+# --- Partie Deux ---
 
 L'air conditionné est en ligne ! Son air frais vous fait du bien pendant quelques temps, mais soudain les alarmes du TEST commencent à retentir. Vu que le système d'air conditionné ne peut pas renvoyer la chaleur autre part que dans le vaisseau à nouveau, il *réchauffe* en réalité l'air du vaisseau.
 
