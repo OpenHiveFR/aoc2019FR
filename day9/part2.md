@@ -1,4 +1,4 @@
-# --- Partie Deux ---
+## --- Partie Deux ---
 
 *Vous possédez maintenant un ordinateur Intcode complet.*
 

@@ -1,4 +1,4 @@
-# --- Jour 1' : Stœchiométrie Spatiale ---
+## --- Jour 1' : Stœchiométrie Spatiale ---
 
 Alors que vous approchez les anneaux de Saturne, l'indicateur de *bas niveau de carburant* de votre vaisseau s'allume. Il n'y a pas de carburant dans les environs, mais les anneaux sont emplis de matériaux brutes. Peut-être que la *nano-usine* d'Union-Raffinerie installée dans votre vaisseau saura transformer ces matériaux en carburant.
 

@@ -1,4 +1,4 @@
-# --- Partie Deux ---
+## --- Partie Deux ---
 
 Après avoir collecté de l'`ORE` pendant un moment, votre cale contient *1 billion* (*1000000000000*) d'unités d'`ORE`.
 

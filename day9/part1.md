@@ -1,4 +1,4 @@
-# --- Jour 9 : Renfort de senseur ---
+## --- Jour 9 : Renfort de senseur ---
 
 Vous venez de faire vos adieux au rover redémarré et avez quitté Mars quand vous recevez un infime signal de détresse provenant de la ceinture d'astéroïdes. Ça doit venir de la station d'observation Cérès !
 

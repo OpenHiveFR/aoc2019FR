@@ -1,4 +1,4 @@
-# --- Jour 5 : Tempête d'astéroïdes géants ---
+## --- Jour 5 : Tempête d'astéroïdes géants ---
 
 Vous commencez à suer pendant que le vaisseau poursuit sa route vers Mercure. Les elfes vous suggèrent de faire démarrer l'air conditionné en améliorant l'ordinateur du vaisseau afin qu'il puisse prendre en charge le Terminal de Supervision de la Température.
 

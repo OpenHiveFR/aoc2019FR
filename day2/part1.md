@@ -1,4 +1,4 @@
-# --- Jour 2 : Alarme de programme 1202 ---
+## --- Jour 2 : Alarme de programme 1202 ---
 
 En route vers votre [Appui Gravitationnel](https://fr.wikipedia.org/wiki/Assistance_gravitationnelle) autour de la lune, votre vaisseau bipe furieusement une "[Alarme de programme 1202](https://www.hq.nasa.gov/alsj/a11/a11.landing.html#1023832)". À la radio, un elfe est déjà en train d'expliquer comment gérer la situation : "Ne vous inquiétez pas, c'est tout-à-fait norma--". L'ordinateur [s'enflamme](https://en.wikipedia.org/wiki/Halt_and_Catch_Fire).
 

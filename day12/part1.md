@@ -1,4 +1,4 @@
-# --- Jour 12 : Le problème a N corps ---
+## --- Jour 12 : Le problème a N corps ---
 
 l'espace proche de jupiter n'est pas un lieu très hospitalier : vous devez faire attention à une [grande tache rouge distrayante](https://fr.wikipedia.org/wiki/Grande_Tache_rouge), à d'extrêmes niveaux de [radiations](https://fr.wikipedia.org/wiki/Magn%C3%A9tosph%C3%A8re_de_Jupiter), et a un [sacré paquet de lunes](https://fr.wikipedia.org/wiki/Satellites_naturels_de_Jupiter#Table) tournoyant dans le coin. Vous décidez de commencer en pistant les quatre plus grandes lunes : *Io*, *Europe*, *Ganymède* et *Callisto*.
 

@@ -1,4 +1,4 @@
-# --- Partie Deux ---
+## --- Partie Deux ---
 
 Le jeu n'a pas réellement démarré parce que vous n'avez pas insérer de pièce de 25 centimes. Hélas, vous n'en avez pas apporté. L'adresse mémoire `0` représente le nombre de pièces de 25 centimes insérées : assignez-lui la valeur `2` pour jouer gratuitement.
 

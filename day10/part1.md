@@ -1,4 +1,4 @@
-# --- Jour 10 : Station d'Observation ---
+## --- Jour 10 : Station d'Observation ---
 
 Vous volez à travers la ceinture d'astéroïdes et atteignez la station d'observation Cérès. Les elfes présents ici ont un problème urgent : ils ont du mal à pister tous les astéroïdes et ne sont pas certains d'être hors de danger.
 

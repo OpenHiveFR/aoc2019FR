@@ -1,4 +1,4 @@
-# --- Jour 7 : Circuit Amplificateur ---
+## --- Jour 7 : Circuit Amplificateur ---
 
 Selon les cartes de navigation, vous allez avoir besoin d'envoyer plus d'énergie vers les propulseurs pour atteindre le Père Noël à temps. Pour ce faire, vous devrez configurer une série d'[amplificateurs](https://fr.wikipedia.org/wiki/Amplificateur_%C3%A9lectronique) déjà installés dans le vaisseau.
 

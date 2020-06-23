@@ -1,4 +1,4 @@
-# --- Jour 6 : Carte Universelle des Orbites ---
+## --- Jour 6 : Carte Universelle des Orbites ---
 
 Vous avez atterri a la station de Carte Universelle des Orbites sur Mercure. Comme la navigation spatiale consistes souvent à effectuer des transferts d'orbite à orbite, les cartes d'orbites trouvables ici sont utiles pour trouver des routes efficace entre, par exemple, le Père Noël et vous. Vous téléchargez une carte des orbites locales (votre entrée de puzzle).
 

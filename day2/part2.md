@@ -1,4 +1,4 @@
-# --- Partie Deux ---
+## --- Partie Deux ---
 
 "Bien, le nouvel ordinateur à l'air de fonctionner correctement ! *Gardez le à portée de main* pendant cette mission, vous vous en servirez sûrement encore à nouveau. Les vrais ordinateurs Intcode implémentent beaucoup plus de fonctionnalités que celui que vous venez de construire, mais nous vous les donnerons au fur et à mesure que vous en aurez besoin."
 

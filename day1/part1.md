@@ -1,4 +1,4 @@
-# --- Jour 1 : La tyrannie de l'équation de la fusée ---
+## --- Jour 1 : La tyrannie de l'équation de la fusée ---
 
 Le Père Noël s'est retrouvé coincé à la frontière du système solaire pendant qu'il livrait des cadeaux aux d'autres planètes ! Pour calculer sa position dans l'espace avec précision, aligner correctement son moteur à distorsion et le ramener sur Terre à temps pour sauver Noël, il a besoin que vous lui ameniez **cinquante étoiles**.
 

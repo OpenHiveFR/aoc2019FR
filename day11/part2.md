@@ -1,4 +1,4 @@
-# --- Partie Deux ---
+## --- Partie Deux ---
 
 Vous ne savez pas ce qu'il essaie de peindre, mais une chose est sûre : ce n'est absolument pas un *identifiant d'enregistrement*. Les Policiers Spatiaux commence à s'impatienter.
 

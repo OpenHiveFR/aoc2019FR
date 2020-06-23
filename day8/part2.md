@@ -1,4 +1,4 @@
-# --- Partie Deux ---
+## --- Partie Deux ---
 
 Maintenant, vous êtes prêt à décoder l'image. L'image est rendue en empilant les couches (en alignant les pixels de même position sur chaque couche). Les chiffres indiquent la couleur du pixel : `0` corresponds au noir, `1` corresponds au blanc, et `2` corresponds à de la transparence.
 
