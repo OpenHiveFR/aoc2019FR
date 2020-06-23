@@ -6,7 +6,7 @@ Afin de verrouiller ce signal, vous allez devoir renforcer vos senseurs. Les elf
 
 Si le BOOST (l'entrée de votre puzzle) est capable de renforcer vos senseurs, pour des raisons de sécurité, il refusera de le faire avant que l'ordinateur sur lequel il est exécuté passe quelques vérifications pour vérifier s'il est bien un *ordinateur Intcode complet*.
 
-[Votre ordinateur Intcode déjà existant](https://openhivefr.github.io/aoc2019fr/day/9) manque d'une fonctionnalité clef : il a besoin de prendre en charge les paramètres *en mode relatif*.
+[Votre ordinateur Intcode déjà existant](https://openhivefr.github.io/summercode/2020/day/9) manque d'une fonctionnalité clef : il a besoin de prendre en charge les paramètres *en mode relatif*.
 
 Les paramètres en mode `2`, le *mode relatif*, se comportent d'une manière similaire aux paramètres en mode *positionnel* : le paramètre est interprété en tant que position. Comme en mode positionnel, les paramètres en mode relatif peuvent servir à lire ou à écrire en mémoire.
 

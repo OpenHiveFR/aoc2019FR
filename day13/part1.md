@@ -4,7 +4,7 @@ Alors que vous prenez conscience de la solitude spatiale et de la perpétuelleme
 
 C'est un nouveau jeu pour la [borne d'arcade](https://fr.wikipedia.org/wiki/Borne_d%27arcade) du vaisseau ! Malheureusement, la borne est *tout au bout* de l'autre côté du vaisseau. Mais il ne sera pas compliqué de vous en construire une autre, le colis surprise contient même des schéma de construction.
 
-La borne d'arcade exécute des programmes [Intcode](https://openhivefr.github.io/aoc2019fr/day/9) comme le jeu que les elfes vous ont envoyé (l'entrée de votre puzzle). Elle a un écran primitif capable d'afficher des *tuiles* carrées sur une grille. Le logiciel affiche les tuiles grâce à des instructions de sortie : trois instructions de sortie correspondent, dans l'ordre, la position `x` de la tuile (distance depuis la bordure gauche) puis la position `y` de la tuile (distance depuis la bordure haute) et enfin l'`identifiant de tuile`. L'`identifiant de tuile` est interprété comme suit :
+La borne d'arcade exécute des programmes [Intcode](https://openhivefr.github.io/summercode/2020/day/9) comme le jeu que les elfes vous ont envoyé (l'entrée de votre puzzle). Elle a un écran primitif capable d'afficher des *tuiles* carrées sur une grille. Le logiciel affiche les tuiles grâce à des instructions de sortie : trois instructions de sortie correspondent, dans l'ordre, la position `x` de la tuile (distance depuis la bordure gauche) puis la position `y` de la tuile (distance depuis la bordure haute) et enfin l'`identifiant de tuile`. L'`identifiant de tuile` est interprété comme suit :
 
 - `0` est une *tuile vide*. Aucun objet de jeu n'apparaît sur cette  tuile.
 - `1` est une *tuile de mur*. Les murs sont des barrières indestructibles.

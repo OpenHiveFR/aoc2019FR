@@ -10,7 +10,7 @@ Cinq amplificateurs sont montés en série, chacun recevant un signal en entrée
     O-------O  O-------O  O-------O  O-------O  O-------O
 ```
 
-Les elfes vous ont envoyé un *logiciel de contrôle d'amplificateurs* (l'entrée de votre puzzle), un programme qui devrait tourner sur votre [ordinateur Intcode existant](https://openhivefr.github.io/aoc2019fr/day/7). Chacun de vos amplificateurs devront exécuter une copie de ce programme.
+Les elfes vous ont envoyé un *logiciel de contrôle d'amplificateurs* (l'entrée de votre puzzle), un programme qui devrait tourner sur votre [ordinateur Intcode existant](https://openhivefr.github.io/summercode/2020/day/7). Chacun de vos amplificateurs devront exécuter une copie de ce programme.
 
 Quand une copie d'un programme démarrera sur un amplificateur, il demandera d'abord une entrée pour définir son *paramètre de phase* actuel (un entier de `0` à `4`). Chaque paramètre de phase doit utilisé *une fois ni plus ni moins*, mais les elfes ne se souviennent pas d'à quel amplificateur correspond quel paramètre de phase.
 

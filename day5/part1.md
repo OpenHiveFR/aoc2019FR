@@ -2,7 +2,7 @@
 
 Vous commencez à suer pendant que le vaisseau poursuit sa route vers Mercure. Les elfes vous suggèrent de faire démarrer l'air conditionné en améliorant l'ordinateur du vaisseau afin qu'il puisse prendre en charge le Terminal de Supervision de la Température.
 
-Le TErminal de Supervision de la Température (TEST) démarre en exécutant un *programme de diagnostique* (l'entrée de votre puzzle). Le diagnostique TEST s'exécuter sur [Votre ordinateur Intcode déjà existant](https://openhivefr.github.io/aoc2019fr/day/2) après quelques modifications :
+Le TErminal de Supervision de la Température (TEST) démarre en exécutant un *programme de diagnostique* (l'entrée de votre puzzle). Le diagnostique TEST s'exécuter sur [Votre ordinateur Intcode déjà existant](https://openhivefr.github.io/summercode/2020/day/2) après quelques modifications :
 
 *Tout d'abord*, vous devrez ajouter *deux nouvelles instructions*:
 
