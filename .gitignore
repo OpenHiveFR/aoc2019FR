@@ -3,3 +3,6 @@
 
 # Partial HTML
 *.phtml
+
+# Compiled html
+day*.html
