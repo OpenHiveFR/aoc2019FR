@@ -1,0 +1,69 @@
+<section id='translation_part_one'> 
+<h2 id="jour-5-tempête-dastéroïdes-géants">— Jour 5 : Tempête d’astéroïdes géants —</h2>
+<p>Vous commencez à suer pendant que le vaisseau poursuit sa route vers Mercure. Les elfes vous suggèrent de faire démarrer l’air conditionné en améliorant l’ordinateur du vaisseau afin qu’il puisse prendre en charge le Terminal de Supervision de la Température.</p>
+<p>Le TErminal de Supervision de la Température (TEST) démarre en exécutant un <em>programme de diagnostique</em> (l’entrée de votre puzzle). Le diagnostique TEST s’exécuter sur <a href="https://openhivefr.github.io/summercode/2020/day/2">Votre ordinateur Intcode déjà existant</a> après quelques modifications :</p>
+<p><em>Tout d’abord</em>, vous devrez ajouter <em>deux nouvelles instructions</em>:</p>
+<ul>
+<li>L’opcode <code>3</code> prend un seul entier relatif en <em>entrée</em> et le sauvegarde dans la position indiquée par son unique paramètre. Par exemple, l’instruction <code>3,50</code> prendrait une valeur en entrée et la sauvegarderait à l’adresse <code>50</code>.</li>
+<li>L’opcode <code>4</code> <em>sort</em> la valeur de son seul paramètre. Par exemple, l’instruction <code>4,50</code> sortirait la valeur à l’adresse <code>50</code></li>
+</ul>
+<p>Les programmes utilisant ces instructions seront accompagnés d’explications à propos de ce qui devra être connecté aux entrées et aux sorties. Le programme <code>3,0,4,0,99</code> sort ce qu’il reçoit en entrée, puis se stoppe.</p>
+<p><em>Ensuite</em>, vous devrez ajouter la prise en charge des <em>modes de paramètres</em> :</p>
+<p>Chacun des paramètres d’une instruction est manipulé sur la base de son mode de paramètre. Pour l’instant, votre ordinateur comprends déjà le mode de paramètre <code>0</code>, <em>le mode positionnel</em>, qui conduit le paramètre a être interprété en tant que <em>position</em> : si le paramètre est <code>50</code>, sa valeur est <em>la valeur stockée à l’adresse mémoire <code>50</code></em>. Jusqu’à maintenant, tous les paramètres ont été en mode positionnel.</p>
+<p>À partir de maintenant, votre ordinateur de bord devra également être capable de gérer le mode de paramètre <code>1</code>, <em>le mode immédiat</em>. En mode immédiat, un paramètre est interprété en tant que <em>valeur</em> : si le paramètre est <code>50</code>, sa valeur est tout simplement <code>&lt;em&gt;50&lt;/em&gt;</code>.</p>
+<p>Les modes de paramètre sont stockés dans la même valeur que l’opcode de l’instruction. L’opcode est un nombre à deux chiffres basé uniquement sur les chiffres des unités et dizaines de cette valeur. En d’autres mots, l’opcode est les deux chiffre le plus à droite de la première valeur d’une instruction. Les modes de paramètres sont des chiffres simples, un seul par paramètre, lus de gauche à droite depuis l’opcode : le mode du premier paramètre est le chiffre des centaines, le deuxième est le chiffre des milliers, le troisième celui des dix-milliers, etc. Tout mode manquant sera considéré comme étant <code>0</code>.</p>
+<p>Par exemple, considérons le programme <code>1002,4,3,4,33</code>.</p>
+<p>La première instruction, <code>1002,4,3,4</code>, est une instruction de <em>multiplication</em> (les deux chiffre les plus à droite de la première valeur, <code>02</code>, indiquent l’opcode <code>2</code>, la multiplication). Ensuite, de droite à gauche, les modes de paramètre sont <code>0</code> (chiffre des centaines), <code>1</code> (chiffre des milliers), et <code>0</code> (chiffre de dix-milliers, non présent et donc considéré comme valant <code>0</code>):</p>
+<pre><code>ABCDE
+ 1002
+
+DE - Opcode à deux chiffres,      02 == opcode 2
+ C - Mode du premier paramètre,    0 == mode positionnel
+ B - Mode du deuxième paramètre,   1 == mode immédiat
+ A - Mode du troisième paramètre,  0 == mode positionnel,
+                                        omi puisqu&#39;étant un 0 implicite</code></pre>
+<p>Cette instruction multiplies ses deux premiers paramètres. Le premier paramètre, <code>4</code> en mode positionnel, fonctionne comme avant (sa valeur est la valeur stockée à l’emplacement <code>4</code>, ici <code>33</code>). Le deuxième paramètre, <code>3</code> en mode immédiat, a simplement pour valeur <code>3</code>. Le résultat de cette opération, <code>33 * 3 = 99</code>, est écrit selon le troisième paramètre, <code>4</code> en mode positionnel, qui lui aussi fonctionne comme avant. (<code>99</code> est écrit à l’adresse <code>4</code>).</p>
+<p>Les paramètres servant de destination d’écriture aux instructions ne seront <em>jamais en mode immédiat</em>.</p>
+<p><em>Enfin</em>, quelques notes :</p>
+<ul>
+<li>Il est important de se souvenir que le pointeur d’instruction devrait être incrémenté du nombre <em>nombre de valeurs dans l’instruction</em> après la fin d’une instruction. Après les modifications ajoutant de nouvelles instructions, ce total n’est plus toujours de <code>4</code>.</li>
+<li>Les entiers peuvent être négatifs : <code>1101,100,-1,4,0</code> est un programme valide. (faire <code>100 + (-1)</code>, stocker le résultat en position <code>4</code>).</li>
+</ul>
+<p>Le programme de diagnostique TEST démarrera en demandant à l’utilisateur l’identifiant du système à tester en exécutant une instruction d’<em>entrée</em>. Entrez-y <code>1</code>, l’identifiant de l’unité d’air conditionné du vaisseau.</p>
+<p>Ensuite, le programme effectuera une série de tests de diagnostique attestant du bon fonctionnement de plusieurs parties de l’ordinateur Intcode, notamment des modes de paramètre. Pour chaque test, il exécutera une instruction de <em>sortie</em>, indiquant la proximité de la valeur obtenue par le test par rapport à la valeur attendue, où <code>0</code> démontre le succès d’un test. Des sorties différentes de <code>0</code> indiqueraient alors qu’une fonctionnalité ne marche pas correctement. Dans le cas où vous en obtiendriez, Vérifiez l’instruction ayant été exécutée juste avant l’instruction de sortie pour savoir laquelle a échoué.</p>
+<p>Enfin, le programme sortira un <em>code de diagnostique</em> et se stoppera immédiatement. Cette sortie finale n’est pas une erreur : une sortie suivie immédiatement par un arrêt du programme signifie que le programme a terminé son travail. Si toutes les sorties sont de <code>0</code> à l’exception du code de diagnostique, alors le programme de diagnostique est effectué avec succès.</p>
+<p>Après avoir entré <code>1</code> en tant que seule entrée et avoir passé tous les tests, <em>quel code de diagnostique le programme sort-il ?</em></p>
+</section> 
+<section id='translation_part_two'> 
+<h2 id="partie-deux">— Partie Deux —</h2>
+<p>L’air conditionné est en ligne ! Son air frais vous fait du bien pendant quelques temps, mais soudain les alarmes du TEST commencent à retentir. Vu que le système d’air conditionné ne peut pas renvoyer la chaleur autre part que dans le vaisseau à nouveau, il <em>réchauffe</em> en réalité l’air du vaisseau.</p>
+<p>À la place, vous allez devoir utiliser le TEST pour déployer les <a href="https://fr.wikipedia.org/wiki/Contr%C3%B4le_thermique_des_engins_spatiaux">radiateurs thermiques</a>. Heureusement, le programme de diagnostique (votre entrée de puzzle) est déjà équipé pour cela. Malheureusement, votre ordinateur de Intcode ne l’est pas.</p>
+<p>Votre ordinateur manque seulement de quelques opcodes :</p>
+<ul>
+<li>L’opcode <code>5</code> est <em>saute-si-vrai</em> : si le premier paramètre est <em>différent de zéro</em>, il assigne au pointeur d’instruction la valeur du deuxième paramètre. Sinon, il ne fait rien.</li>
+<li>L’opcode <code>6</code> est <em>saute-si-faux</em> : si le premier paramètre est <em>zéro</em>, il assigne au pointeur d’instruction la valeur du deuxième paramètre. Sinon, il ne fait rien.</li>
+<li>L’opcode <code>7</code> est <em>inférieur à</em> : si le premier paramètre est <em>inférieur</em> au second paramètre, il écrit <code>1</code> à l’adresse donnée par le troisième paramètre. Sinon, il y écrit <code>0</code>.</li>
+<li>L’opcode <code>8</code> est <em>égal à</em> : si le premier paramètre est <em>égal</em> au second paramètre, il écrit <code>1</code> à l’adresse donnée par le troisième paramètre. Sinon, il y écrit <code>0</code>.</li>
+</ul>
+<p>Comme toutes les instructions, celles-ci nécessitent la prise en charge des <em>modes de paramètre</em> comme décrit plus tôt.</p>
+<p>Normalement, après la fin d’une instruction, le pointeur d’instruction est incrémenté du nombre de valeurs de cette instruction. <em>Cependant</em>, si l’instruction modifie le pointeur d’instruction par une valeur, cette valeur est utilisée et le pointeur d’instruction n’est <em>pas automatiquement incrémenté.</em></p>
+<p>Par exemple, voici plusieurs programmes prenant une entrée, la comparant à la valeur <code>8</code>, et produisant une sortie :</p>
+<ul>
+<li><code>3,9,8,9,10,9,4,9,99,-1,8</code> - Utilisant le <em>mode positionnel</em>, chercher si la valeur entrée est <em>égale</em> à <code>8</code> ; sortir <code>1</code> (si elle l’est) ou <code>0</code> (si elle ne l’est pas).</li>
+<li><code>3,9,7,9,10,9,4,9,99,-1,8</code> - Utilisant le <em>mode positionnel</em>, chercher si la valeur entrée est <em>inférieure</em> à <code>8</code> ; sortir <code>1</code> (si elle l’est) ou <code>0</code> (si elle ne l’est pas).</li>
+<li><code>3,3,1108,-1,8,3,4,3,99</code> - Utilisant le <em>mode immédiat</em>, chercher si la valeur entrée est <em>égale</em> à <code>8</code> ; sortir <code>1</code> (si elle l’est) ou <code>0</code> (si elle ne l’est pas).</li>
+<li><code>3,3,1107,-1,8,3,4,3,99</code> - Utilisant le <em>mode immédiat</em>, chercher si la valeur entrée est <em>inférieure</em> à <code>8</code> ; sortir <code>1</code> (si elle l’est) ou <code>0</code> (si elle ne l’est pas).</li>
+</ul>
+<p>Voici des tests de saut prenant une sortie, et sortant <code>0</code> si l’entrée était <code>0</code> ou <code>1</code> si l’entrée était différente de <code>0</code> :</p>
+<ul>
+<li><code>3,12,6,12,15,1,13,14,13,4,13,99,-1,0,1,9</code> (utilisant le <em>mode positionnel</em>)</li>
+<li><code>3,3,1105,-1,9,1101,0,0,12,4,12,99,1</code> (utilisant le <em>mode immédiat</em>)</li>
+</ul>
+<p>Voici un plus grand exemple :</p>
+<pre class="intcode"><code>3,21,1008,21,8,20,1005,20,22,107,8,21,20,1006,20,31,
+1106,0,36,98,0,0,1002,21,125,20,4,20,1105,1,46,104,
+999,1105,1,46,1101,1000,1,20,4,20,1105,1,46,98,99</code></pre>
+<p>L’exemple ci-dessus utilise une instruction d’entrée pour demander un seul nombre. Le programme sortira ensuite <code>999</code> si la valeur est inférieure à <code>8</code>, <code>1000</code> si elle est égale à <code>8</code>, ou <code>1001</code> si elle est supérieure à <code>8</code></p>
+<p>Cette fois, quand le programme de diagnostique du TEST demandera l’identifiant du système à tester, <em>entrez le nombre <code>5</code></em>, l’identifiant du contrôleur des radiateurs thermiques du vaisseau. cette suite de test ne sortira qu’un seul nombre, le <em>code de diagnostique.</em></p>
+<p><em>Quel est le code de diagnostique pour le système d’identifiant <code>5</code> ?</em></p>
+</section> 

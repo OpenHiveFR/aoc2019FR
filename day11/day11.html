@@ -1,0 +1,53 @@
+<section id='translation_part_one'> 
+<h2 id="jour-11-police-spatiale">— Jour 11 : Police Spatiale —</h2>
+<p>Sur la route vers Jupiter, vous êtes <a href="https://www.youtube.com/watch?v=KwY28rpyKDE">arrêté</a> par la <em>police spatiale</em>.</p>
+<p>“Attention, appareil non-immatriculé ! Vous êtes en infraction à la Loi Spatiale ! Tout appareil se doit d’arborer un <em>identifiant d’enregistrement</em> clairement visible ! Vous avez 24 heures pour vous régulariser, ou vous serez conduits en <a href="https://www.youtube.com/watch?v=BVn1oQL9sWg&amp;t=5">Prison Spatiale</a> !”</p>
+<p>Préférant éviter la Prison Spatiale, vous appelez les elfes sur Terre pour demander leur aide. Même si leur réponse met presque trois heures à vous parvenir, ils vous envoient des instructions pour démarrer le <em>robot peintre de coque d’urgence</em> et vous fournissent un petit <a href="https://openhivefr.github.io/summercode/2020/day/9">programme Intcode</a> (l’entrée de votre puzzle) qui lui permettra de peindre votre coque de la bonne façon.</p>
+<p>Il n’y a qu’un seul petit problème : vous n’avez pas de robot peintre de coque d’urgence.</p>
+<p>Vous allez devoir construire un robot peintre de coque d’urgence. Le robot doit être capable de se déplacer sur une grille de panneaux carrés sur le côté de votre vaisseau, de détecter la couleur du panneau sur lequel il est positionné, et de peindre ce même panneau en <em>noir</em> ou en <em>blanc</em> (tous les panneaux de la coque sont pour le moment <em>noirs</em>).</p>
+<p>Le programme Intcode sera le cerveau du robot. Ce programme utilise une instruction d’entrée pour accéder à la caméra du robot : envoyez <code>0</code> si le robot est sur un panneau <em>noir</em> ou <code>1</code> si le robot est sur un panneau <em>blanc</em>. Ensuite, Le programme sortira deux valeurs :</p>
+<ul>
+<li>D’abord, il sortira une valeur indiquant <em>en quelle couleur peindre le panneau</em> sur lequel est le robot : <code>0</code> signifie qu’il doit être peint en <em>noir</em>, et <code>1</code> signifie qu’il doit être peint en <em>blanc</em></li>
+<li>Ensuite, il sortira une valeur indiquant <em>le sens de la prochaine rotation du robot</em> : <code>0</code> signifie qu’il devrait tourner <em>de 90 degrés vers la gauche</em>, <code>1</code> signifie qu’il doit tourner *de 90 degrés vers la droite.</li>
+</ul>
+<p>Une fois le robot tourné, il doit toujours se déplacer <em>d’un panneau vers l’avant</em>. Le robot démarre tourné <em>vers le haut</em>.</p>
+<p>Le robot continuera ensuite de fonctionner un temps de cette manière et s’arrêtera quand il aura fini de dessiner. Ne redémarrez pas l’ordinateur Intcode dans le robot pendant ce processus.</p>
+<p>Par exemple, supposez que le robot s’apprête à démarrer. Représentons les panneaux noirs par <code>.</code>, les panneaux blancs par <code>#</code> et le robot par <code>^</code>, <code>v</code>, <code>&lt;</code> ou <code>&gt;</code> selon la direction vers laquelle il est orienté. L’état initial et la région proche du robot ressemblent à ceci :</p>
+<pre><code>.....
+.....
+..^..
+.....
+.....</code></pre>
+<p>Le panneau sous le robot, caché ici, puisque le robot (<code>^</code>) est dessus, est lui aussi noir, en conséquence de quoi une demande d’entrée par le cerveau du robot devrait être satisfaite par l’envoi de la valeur <code>0</code>. Supposez que le robot finisse par sortir la valeur <code>1</code> (peindre en blanc), puis <code>0</code> (tourner à gauche). Après avoir agi selon les sorties et s’être déplacé d’un panneau vers l’avant, la région ressemble maintenant à ceci :</p>
+<pre><code>.....
+.....
+.&lt;#..
+.....
+.....</code></pre>
+<p>La demande d’entrée doit à nouveau être satisfaite par l’envoi d’un <code>0</code>. Ensuite, le cerveau pourrait sortir <code>0</code> (peindre en noir) puis <code>0</code> (tourner à gauche) :</p>
+<pre><code>.....
+.....
+..#..
+.v...
+.....</code></pre>
+<p>Après quelques autres sorties (<code>1,0</code>, <code>1,0</code>) :</p>
+<pre><code>.....
+.....
+..^..
+.##..
+.....</code></pre>
+<p>Le robot est maintenant de retour à son emplacement de départ, mais puisqu’il est maintenant sur un panneau blanc, la demande d’entrée sera satisfaite par un <code>1</code>. Après quelques autres sorties (<code>0,1</code>, <code>1,0</code>, <code>1,0</code>), la zone ressemble à ceci :</p>
+<pre><code>.....
+..&lt;#.
+...#.
+.##..
+.....</code></pre>
+<p>Avant de déployer le robot, vous devriez probablement avoir une estimation du <em>nombre de panneaux qu’il peindra au moins une fois</em>, peu importe la couleur. Dans l’exemple ci-dessus, le robot a peint <em><code>6</code> panneaux</em> au moins une fois (il a peint le panneau de démarrage deux fois, mais ce panneau <a href="https://www.youtube.com/watch?v=KjsSvjA5TuE">ne compte quand même que pour un</a> ; De plus, il n’a jamais peint le panneau sur lequel il s’est arrêté).</p>
+<p>Construisez un robot peintre de coque d’urgence, et faite sle exécuter le programme Intcode. <em>Combien de panneaux peint-il au moins une fois ?</em></p>
+</section> 
+<section id='translation_part_two'> 
+<h2 id="partie-deux">— Partie Deux —</h2>
+<p>Vous ne savez pas ce qu’il essaie de peindre, mais une chose est sûre : ce n’est absolument pas un <em>identifiant d’enregistrement</em>. Les Policiers Spatiaux commence à s’impatienter.</p>
+<p>En revérifiant les caméras extérieures de votre vaisseau, vous remarquez un panneau blanc où il est écrit “panneau de démarrage du robot peintre de coque d’urgence”. Le reste des panneaux sont <em>toujours noirs</em>, mais il semble que le robot devait en fait <em>commencer sur un panneau blanc</em>, pas sur un panneau noir.</p>
+<p>Selon la Brochure de Loi Spatiale que la Police Spatiale a attachée à l’une de vos fenêtres, un identifiant d’enregistrement valide est toujours composé de <em>huit lettres majuscules</em>. Après avoir fait démarrer le panneau sur un unique <em>panneau blanc</em> à la place d’un panneau noir, <em>quel identifiant d’enregistrement peint-il</em> sur la coque ?</p>
+</section> 

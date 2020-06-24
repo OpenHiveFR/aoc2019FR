@@ -1,0 +1,91 @@
+<section id='translation_part_one'> 
+<h2 id="jour-14-stœchiométrie-spatiale">— Jour 14 : Stœchiométrie Spatiale —</h2>
+<p>Alors que vous approchez les anneaux de Saturne, l’indicateur de <em>bas niveau de carburant</em> de votre vaisseau s’allume. Il n’y a pas de carburant dans les environs, mais les anneaux sont emplis de matériaux brutes. Peut-être que la <em>nano-usine</em> d’Union-Raffinerie installée dans votre vaisseau saura transformer ces matériaux en carburant.</p>
+<p>Vous demandez à la nano-usine de vous donner une liste des <em>réactions</em> utiles pour ce processus qu’elle peut effectuer (l’entrée de votre puzzle). Chaque réaction transforme une quantité précise de <em>matériaux d’entrée</em> en une quantité précise de <em>matériau de sortie</em>. La quasi-totalité des <em>matériaux</em> sont chacun produits par une seule réaction : la seule exception est l’<code>ORE</code>, le matériau brut présent en grande quantité dans les anneaux de Saturne et qui est le matériau d’entrée du processus, n’étant donc pas produit par une réaction.</p>
+<p>Vous avez simplement besoin de savoir combien d’<em><code>ORE</code></em> vous devrez récoltez avant de pouvoir construire une unité de <em><code>FUEL</code></em>, le carburant.</p>
+<p>Chaque réaction est définie pour des quantités précises d’entrées et de sorties. Une réaction ne peut pas être partiellement faite, en conséquence de quoi seuls des entiers multiples de ces quantités peuvent être utilisées (par contre, il est possible d’avoir des matériaux en surplus). Par exemple, la réaction notée <code>1 A, 2 B, 3 C =&gt; 2 D</code> signifie qu’exactement 2 unités du matériau <code>D</code> peuvent être produits en consommant exactement 1 <code>A</code>, 2 <code>B</code> et 3 <code>C</code>. Vous pouvez faire cette réaction autant de fois que nécessaire : par exemple, vous pourriez produire 10 <code>D</code> grâce à 5 <code>A</code>, 10 <code>B</code> et 15 <code>C</code>.</p>
+<p>Supposez que votre nano-usine sorte cette liste de réactions :</p>
+<pre><code>10 ORE =&gt; 10 A
+1 ORE =&gt; 1 B
+7 A, 1 B =&gt; 1 C
+7 A, 1 C =&gt; 1 D
+7 A, 1 D =&gt; 1 E
+7 A, 1 E =&gt; 1 FUEL</code></pre>
+<p>Les deux premières réactions utilisent seulement de l’<code>ORE</code> en entrée ; elles indiquent que vous pouvez construire autant de <code>A</code> que vous le souhaitez (par lot de 10 unités, coûtant chacun 10 <code>ORE</code>) et autant de matériau <code>B</code> que vous le souhaitez (chaque unité coûtant 1 <code>ORE</code>). Pour produire 1 <code>FUEL</code>, un total de <em>31</em> <code>ORE</code> sont requis : 1 <code>ORE</code> pour produire 1 <code>B</code>, puis 30 <code>ORE</code> supplémentaires pour produire les 7 + 7 + 7 + 7 = 28 <code>A</code> (avec 2 <code>A</code> restants en surplus donc) requis pour convertir les <code>B</code> en <code>C</code>, les <code>C</code> en <code>D</code>, les <code>D</code> en <code>E</code> et enfin les <code>E</code> en <code>FUEL</code> (30 <code>A</code> sont produits au total car la réactions les créant les crée 10 par 10).</p>
+<p>Ou, supposez que vous ayez cette autre liste de réactions à la place :</p>
+<pre><code>9 ORE =&gt; 2 A
+8 ORE =&gt; 3 B
+7 ORE =&gt; 5 C
+3 A, 4 B =&gt; 1 AB
+5 B, 7 C =&gt; 1 BC
+4 C, 1 A =&gt; 1 CA
+2 AB, 3 BC, 4 CA =&gt; 1 FUEL</code></pre>
+<p>La liste des réactions ci-dessus demande <em>165</em> <code>ORE</code> pour produire 1 <code>FUEL</code> :</p>
+<ul>
+<li>Consommez 45 <code>ORE</code> pour produire 10 <code>A</code>.</li>
+<li>Consommez 64 <code>ORE</code> pour produire 24 <code>B</code>.</li>
+<li>Consommez 56 <code>ORE</code> pour produire 40 <code>C</code>.</li>
+<li>Consommez 6 <code>A</code>, 8 <code>B</code> pour produire 2 <code>AB</code>.</li>
+<li>Consommez 15 <code>B</code>, 21 <code>C</code> pour produire 3 <code>BC</code>.</li>
+<li>Consommez 16 <code>C</code>, 4 <code>A</code> pour produire 4 <code>CA</code>.</li>
+<li>Consommez 2 <code>AB</code>, 3 <code>BC</code>, 4 <code>CA</code> pour produire 1 <code>FUEL</code>.</li>
+</ul>
+<p>Voici quelques autres exemples plus grands :</p>
+<ul>
+<li><em>13312</em> <code>ORE</code> pour 1 <code>FUEL</code> :<br />
+</li>
+</ul>
+<pre><code>157 ORE =&gt; 5 NZVS
+165 ORE =&gt; 6 DCFZ
+44 XJWVT, 5 KHKGT, 1 QDVJ, 29 NZVS, 9 GPVTF, 48 HKGWZ =&gt; 1 FUEL
+12 HKGWZ, 1 GPVTF, 8 PSHF =&gt; 9 QDVJ
+179 ORE =&gt; 7 PSHF
+177 ORE =&gt; 5 HKGWZ
+7 DCFZ, 7 PSHF =&gt; 2 XJWVT
+165 ORE =&gt; 2 GPVTF
+3 DCFZ, 7 NZVS, 5 HKGWZ, 10 PSHF =&gt; 8 KHKGT</code></pre>
+<ul>
+<li><em>180697</em> <code>ORE</code> pour 1 <code>FUEL</code> :<br />
+</li>
+</ul>
+<pre><code>2 VPVL, 7 FWMGM, 2 CXFTF, 11 MNCFX =&gt; 1 STKFG
+17 NVRVD, 3 JNWZP =&gt; 8 VPVL
+53 STKFG, 6 MNCFX, 46 VJHF, 81 HVMC, 68 CXFTF, 25 GNMV =&gt; 1 FUEL
+22 VJHF, 37 MNCFX =&gt; 5 FWMGM
+139 ORE =&gt; 4 NVRVD
+144 ORE =&gt; 7 JNWZP
+5 MNCFX, 7 RFSQX, 2 FWMGM, 2 VPVL, 19 CXFTF =&gt; 3 HVMC
+5 VJHF, 7 MNCFX, 9 VPVL, 37 CXFTF =&gt; 6 GNMV
+145 ORE =&gt; 6 MNCFX
+1 NVRVD =&gt; 8 CXFTF
+1 VJHF, 6 MNCFX =&gt; 4 RFSQX
+176 ORE =&gt; 6 VJHF</code></pre>
+<ul>
+<li><em>2210736</em> <code>ORE</code> pour 1 <code>FUEL</code> :<br />
+</li>
+</ul>
+<pre><code>171 ORE =&gt; 8 CNZTR
+7 ZLQW, 3 BMBT, 9 XCVML, 26 XMNCP, 1 WPTQ, 2 MZWV, 1 RJRHP =&gt; 4 PLWSL
+114 ORE =&gt; 4 BHXH
+14 VRPVC =&gt; 6 BMBT
+6 BHXH, 18 KTJDG, 12 WPTQ, 7 PLWSL, 31 FHTLT, 37 ZDVW =&gt; 1 FUEL
+6 WPTQ, 2 BMBT, 8 ZLQW, 18 KTJDG, 1 XMNCP, 6 MZWV, 1 RJRHP =&gt; 6 FHTLT
+15 XDBXC, 2 LTCX, 1 VRPVC =&gt; 6 ZLQW
+13 WPTQ, 10 LTCX, 3 RJRHP, 14 XMNCP, 2 MZWV, 1 ZLQW =&gt; 1 ZDVW
+5 BMBT =&gt; 4 WPTQ
+189 ORE =&gt; 9 KTJDG
+1 MZWV, 17 XDBXC, 3 XCVML =&gt; 2 XMNCP
+12 VRPVC, 27 CNZTR =&gt; 2 XDBXC
+15 KTJDG, 12 BHXH =&gt; 5 XCVML
+3 BHXH, 2 VRPVC =&gt; 7 MZWV
+121 ORE =&gt; 7 VRPVC
+7 XCVML =&gt; 6 RJRHP
+5 BHXH, 4 VRPVC =&gt; 5 LTCX</code></pre>
+<p>Étant donné la liste des réactions dans votre entrée de puzzle, *quel est le nombre minimum d’<code>ORE</code> requis pour produire exactement 1 <code>FUEL</code> ?</p>
+</section> 
+<section id='translation_part_two'> 
+<h2 id="partie-deux">— Partie Deux —</h2>
+<p>Après avoir collecté de l’<code>ORE</code> pendant un moment, votre cale contient <em>1 billion</em> (<em>1000000000000</em>) d’unités d’<code>ORE</code>.</p>
+<p><em>Avec cette quantité d’<code>ORE</code></em>, considérant les exemples plus hauts : - L’exemple avec 13312 <code>ORE</code> par <code>FUEL</code> pourrait produire <em>82892753</em> <code>FUEL</code>. - L’exemple avec 180697 <code>ORE</code> par <code>FUEL</code> pourrait produire <em>5586022</em> <code>FUEL</code>. - L’exemple avec 2210736 <code>ORE</code> par <code>FUEL</code> pourrait produire <em>460664</em> <code>FUEL</code>.</p>
+<p>Avec un billion d’<code>ORE</code>, <em>quel est le nombre maximal de <code>FUEL</code> pouvant être produit ?</em></p>
+</section> 

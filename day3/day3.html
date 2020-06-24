@@ -1,0 +1,63 @@
+<section id='translation_part_one'> 
+<h2 id="jour-3-câbles-croisés">— Jour 3 : Câbles croisés —</h2>
+<p>L’appui gravitationnel a été réussi, et vous êtes bien engagé sur le chemin de la station de carburant de Vénus. Dans la cohue sur Terre, le système de gestion du carburant n’a pas été complètement installé, il s’agit donc de la prochaine priorité sur la liste.</p>
+<p>Ouvrir le panneau avant révèle un méli-mélo de câbles. Plus précisément, <em>deux câbles</em> sont connectés à un port central et s’étendent une grille. Vous repérez les chemins que les deux câbles empruntent hors du port central, un câble par ligne de texte (l’entrée de votre puzzle)</p>
+<p>Les câbles se tordent et tournent, mais les deux câbles se croisent parfois. Pour réparer le circuit, vous devez <em>trouver le point d’intersection le plus proche du port central</em>. Comme les câbles sont sur une grille, utilisez la <a href="https://fr.wikipedia.org/wiki/Distance_de_Manhattan">distance de Manhattan</a> pour les mesures. Même si les deux câbles se croisent techniquement au port central où ils commencent tous les deux, cette intersection ne compte pas, et l’intersection d’un câble avec lui-même ne compte pas non plus.</p>
+<p>Par exemple, si le chemin du premier câble est <code>R8,U5,L5,D3</code>, alors en commençant au port central (<code>o</code>), il part alors à droite pendant <code>8</code> unités, vers le haut pour <code>5</code>, vers la gauche pour <code>5</code> et enfin vers le bas pour <code>3</code> :</p>
+<pre><code>...........
+...........
+...........
+....+----+.
+....|....|.
+....|....|.
+....|....|.
+.........|.
+.o-------+.
+...........</code></pre>
+<p>Ensuite, si le deuxième câble a pour chemin <code>U7,R6,D4,L4</code>, alors il va vers le haut pour <code>7</code> unités, vers la droite pour <code>6</code>, vers le bas pour <code>4</code>, et enfin vers la gauche pour <code>4</code> :</p>
+<pre><code>...........
+.+-----+...
+.|.....|...
+.|..+--X-+.
+.|..|..|.|.
+.|.-X--+.|.
+.|..|....|.
+.|.......|.
+.o-------+.
+...........</code></pre>
+<p>Ces câbles se croisent à deux endroits (marqués <code>X</code>), mais l’endroit le plus bas est en l’occurrence le plus proche du port central : sa distance est de <code>3 + 3 = 6</code>.</p>
+<p>Voici quelques exemples supplémentaires :</p>
+<ul>
+<li><code>R75,D30,R83,U83,L12,D49,R71,U7,L72</code><br />
+<code>U62,R66,U55,R34,D71,R55,D58,R83</code> : Distance = <code>159</code></li>
+<li><code>R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51</code><br />
+<code>U98,R91,D20,R16,D67,R40,U7,R15,U6,R7</code>: Distance = <code>135</code></li>
+</ul>
+<p><em>Quelle est la distance de Manhattan</em> depuis le port central jusqu’à l’intersection la plus proche</p>
+</section> 
+<section id='translation_part_two'> 
+<h2 id="partie-deux">— Partie Deux —</h2>
+<p>Il se trouve que le circuit est très sensible au rythme ! Vous allez en fait avoir besoin de <em>minimiser le délai du signal</em>.</p>
+<p>Pour ce faire, calculez le <em>nombre de pas</em> que chacun des câble doit effectuer pour atteindre chaque intersection et choisissez l’intersection où <em>la somme des pas de chacun des deux câbles</em> est la plus basse. Si un câble visite un emplacement de la grille plusieurs fois, utilisez le nombre de pas pour la <em>première</em> fois qu’il atteint cette position pour le calcul de la valeur d’intersection spécifique à cet emplacement si il y en a une.</p>
+<p>Le nombre de pas qu’un câble prends pour arriver à un endroit est le nombre total de carrés de la grille où le câble est entré pour atteindre cet endroit, incluant l’intersection étudiée. À nouveau, considérons l’exemple d’au-dessus :</p>
+<pre><code>...........
+.+-----+...
+.|.....|...
+.|..+--X-+.
+.|..|..|.|.
+.|.-X--+.|.
+.|..|....|.
+.|.......|.
+.o-------+.
+...........</code></pre>
+<p>Dans l’exemple ci-dessus, l’intersection la plus proche du port central est atteinte après <code>8+5+5+2 = &lt;em&gt;20&lt;/em&gt;</code> pas par le premier câble et <code>7+6+4+3 = &lt;em&gt;20&lt;/em&gt;</code> pas par le second câble, pour un total de <code>20+20 = &lt;em&gt;40&lt;/em&gt;</code> pas.</p>
+<p>Cependant, l’intersection la plus haute est en fait la meilleure : le premier câble mets seulement <code>8+5+2 = &lt;em&gt;15&lt;/em&gt;</code> pas et le second câble seulement <code>7+6+2 = &lt;em&gt;15&lt;/em&gt;</code> pas pour y accéder, soit un total de seulement <code>15+15 = &lt;em&gt;30&lt;/em&gt;</code> pas.</p>
+<p>Voici les meilleurs pas pour les exemple supplémentaires donnés plus tôt :</p>
+<ul>
+<li><code>R75,D30,R83,U83,L12,D49,R71,U7,L72</code><br />
+<code>U62,R66,U55,R34,D71,R55,D58,R83</code> : Pas = <code>610</code></li>
+<li><code>R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51</code><br />
+<code>U98,R91,D20,R16,D67,R40,U7,R15,U6,R7</code>: Pas = <code>410</code></li>
+</ul>
+<p><em>Quel est le nombre le plus bas de pas combinés que les deux câbles doivent prendre pour atteindre une intersection ?</em></p>
+</section> 

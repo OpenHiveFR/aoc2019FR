@@ -1,0 +1,27 @@
+<section id='translation_part_one'> 
+<h2 id="jour-13-colis-surprise">— Jour 13 : Colis Surprise —</h2>
+<p>Alors que vous prenez conscience de la solitude spatiale et de la perpétuellement grandissante durée de trois heures des aller-retours des messages avec la Terre, vous remarquez que la Loupiote Indicatrice de Mail Spatial clignote. Pour vous aider à garder votre santé mentale, les elfes vous ont envoyé un colis surprise.</p>
+<p>C’est un nouveau jeu pour la <a href="https://fr.wikipedia.org/wiki/Borne_d%27arcade">borne d’arcade</a> du vaisseau ! Malheureusement, la borne est <em>tout au bout</em> de l’autre côté du vaisseau. Mais il ne sera pas compliqué de vous en construire une autre, le colis surprise contient même des schéma de construction.</p>
+<p>La borne d’arcade exécute des programmes <a href="https://openhivefr.github.io/summercode/2020/day/9">Intcode</a> comme le jeu que les elfes vous ont envoyé (l’entrée de votre puzzle). Elle a un écran primitif capable d’afficher des <em>tuiles</em> carrées sur une grille. Le logiciel affiche les tuiles grâce à des instructions de sortie : trois instructions de sortie correspondent, dans l’ordre, la position <code>x</code> de la tuile (distance depuis la bordure gauche) puis la position <code>y</code> de la tuile (distance depuis la bordure haute) et enfin l’<code>identifiant de tuile</code>. L’<code>identifiant de tuile</code> est interprété comme suit :</p>
+<ul>
+<li><code>0</code> est une <em>tuile vide</em>. Aucun objet de jeu n’apparaît sur cette tuile.</li>
+<li><code>1</code> est une <em>tuile de mur</em>. Les murs sont des barrières indestructibles.</li>
+<li><code>2</code> est une <em>tuile de bloc</em>. Les blocs sont détruits par la balle.</li>
+<li><code>3</code> est une <em>tuile de raquette horizontale</em>. La raquette est indestructible.</li>
+<li><code>4</code> est une <em>tuile de balle</em>. La balle bouge en diagonale et rebondit sur les objets.</li>
+</ul>
+<p>Par exemple, la séquence de sortie <code>1,2,3,6,5,4</code> afficherait une tuile de <em>raquette horizontale</em> (a <code>1</code> emplacement de grille de la bordure gauche et a <code>2</code> emplacements de grille de la bordure haute) et une tuile de balle (a <code>6</code> emplacement de grille de la bordure gauche et a <code>5</code> emplacements de grille de la bordure haute).</p>
+<p>Démarrez le jeu. <em>Combien de tuiles de blocs sont sur l’écran quand le jeu se termine ?</em></p>
+</section> 
+<section id='translation_part_two'> 
+<h2 id="partie-deux">— Partie Deux —</h2>
+<p>Le jeu n’a pas réellement démarré parce que vous n’avez pas insérer de pièce de 25 centimes. Hélas, vous n’en avez pas apporté. L’adresse mémoire <code>0</code> représente le nombre de pièces de 25 centimes insérées : assignez-lui la valeur <code>2</code> pour jouer gratuitement.</p>
+<p>La borne d’arcade a un <a href="https://fr.wikipedia.org/wiki/Joystick">joystick</a> pouvant bouger vers la gauche ou la droite. Le logiciel lit la position du joystick grâce à des instructions d’entrées :</p>
+<ul>
+<li>Si le joystick est en <em>position neutre</em>, envoyez <code>0</code>.</li>
+<li>Si le joystick est en <em>position gauche</em>, envoyez <code>-1</code>.</li>
+<li>Si le joystick est en <em>position droite</em>, envoyez <code>1</code>.</li>
+</ul>
+<p>La borne d’arcade est également dotée d’un <a href="https://fr.wikipedia.org/wiki/Afficheur_7_segments">afficheur a sept segments</a> capable d’exprimer un seul nombre représentant le score actuel du joueur. Quand une séquence de trois sorties démarre par <code>X=-1, Y=0</code>, la troisième sortie n’est pas un identifiant de tuile ; à la place, la valeur est celle du nouveau score à faire afficher par l’afficheur à 7 segments. Par exemple, la séquence de sorties <code>-1,0,12345</code> ferait afficher <code>12345</code> en tant que score du joueur.</p>
+<p>Gagnez le jeu en détruisant tous les blocs. <em>Quel est votre score après que le dernier bloc ait été détruit ?</em></p>
+</section> 

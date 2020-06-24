@@ -1,0 +1,69 @@
+<section id='translation_part_one'> 
+<h2 id="jour-7-circuit-amplificateur">— Jour 7 : Circuit Amplificateur —</h2>
+<p>Selon les cartes de navigation, vous allez avoir besoin d’envoyer plus d’énergie vers les propulseurs pour atteindre le Père Noël à temps. Pour ce faire, vous devrez configurer une série d’<a href="https://fr.wikipedia.org/wiki/Amplificateur_%C3%A9lectronique">amplificateurs</a> déjà installés dans le vaisseau.</p>
+<p>Cinq amplificateurs sont montés en série, chacun recevant un signal en entrée et produisant un signal en sortie. Ils sont connectés de manière à ce que le premier amplificateur envoie son signal de sortie dans l’entrée du deuxième amplificateur, la sortie du deuxième amplificateur mène à l’entrée du troisième, et ainsi de suite. La valeur d’entrée du premier amplificateur est <code>0</code>, et la sortie du dernier amplificateur mène aux propulseurs du vaisseau.</p>
+<pre><code>    O-------O  O-------O  O-------O  O-------O  O-------O
+0 -&gt;| Amp A |-&gt;| Amp B |-&gt;| Amp C |-&gt;| Amp D |-&gt;| Amp E |-&gt; (propulseurs)
+    O-------O  O-------O  O-------O  O-------O  O-------O</code></pre>
+<p>Les elfes vous ont envoyé un <em>logiciel de contrôle d’amplificateurs</em> (l’entrée de votre puzzle), un programme qui devrait tourner sur votre <a href="https://openhivefr.github.io/summercode/2020/day/7">ordinateur Intcode existant</a>. Chacun de vos amplificateurs devront exécuter une copie de ce programme.</p>
+<p>Quand une copie d’un programme démarrera sur un amplificateur, il demandera d’abord une entrée pour définir son <em>paramètre de phase</em> actuel (un entier de <code>0</code> à <code>4</code>). Chaque paramètre de phase doit utilisé <em>une fois ni plus ni moins</em>, mais les elfes ne se souviennent pas d’à quel amplificateur correspond quel paramètre de phase.</p>
+<p>Le programme demandera ensuite une autre entrée, cette fois-ci pour obtenir le signal d’entrée de l’amplificateur. Il calculera ensuite le bon signal à sortir, et le sortira avec une instruction de sortie (si un amplificateur n’a pas encore reçu son signal d’entrée, il devra en attendre un).</p>
+<p>Votre job ici est de <em>trouver le plus grand signal de sortie pouvant être envoyé vers les propulseurs</em> en essayant chaque combinaison de paramètres de phase possibles. Assurez-vous que la mémoire ne soit pas partagée entre les différentes copies du programme.</p>
+<p>Par exemple, supposez que vous souhaitez essayer la séquence de paramètres de phase <code>3,1,2,4,0</code>, ce qui demanderait de régler l’amplificateur <code>A</code> au paramètre de phase <code>3</code>, l’amplificateur <code>B</code> au paramètre <code>1</code>, <code>C</code> à <code>2</code>, <code>D</code> à <code>4</code> et <code>E</code> à <code>0</code>. Ensuite, vous pourrez déterminer le signal de sortie envoyé par l’amplificateur <code>E</code> aux propulseurs grâce aux étapes suivantes :</p>
+<ul>
+<li>Commencez par copier le logiciel de contrôle d’amplificateur qui sera exécuté par l’amplificateur <code>A</code>. En tant que première entrée, fournissez-lui le paramètre de phase <code>3</code>. Lors de sa seconde instruction d’entrée, fournissez-lui le signal d’entrée, <code>0</code>. Après quelques calculs, il utilisera une instruction de sortie pour indiquer la sortie de l’amplificateur.</li>
+<li>Démarrez le logiciel pour l’amplificateur <code>B</code>. Fournissez-lui d’abord son paramètre de phase (<code>1</code>) puis le signal étant sortie de l’amplificateur <code>A</code>. Il sortira ensuite un nouveau signal, destiné à <code>C</code>.</li>
+<li>Démarrez le logiciel pour l’amplificateur <code>C</code>. Donnez-lui son paramètre de phase (<code>2</code>) et la sortie de l’amplificateur <code>B</code>, puis récupérez son signal de sortie.</li>
+<li>Exécutez le logiciel de l’amplificateur <code>D</code>, donnez-lui son paramètre (<code>4</code>) et son signal d’entrée, puis récoltez son signal de sortie.</li>
+<li>Exécutez le logiciel de l’amplificateur <code>E</code>, donnez-lui son paramètre (<code>0</code>) et son signal d’entrée, puis récoltez le signal de sortie.</li>
+</ul>
+<p>Le signal de sortie final de l’amplificateur <code>E</code> serait celui envoyé aux propulseurs. Cependant, cette séquence de paramètres de phase pourrait ne pas être la meilleure, une autre pourrait produire un signal final plus élevé à envoyer aux propulseurs.</p>
+<p>Voici quelques exemples de programmes : - Le signal maximal vers les propulseurs est <code>&lt;em&gt;43210&lt;/em&gt;</code> (séquence de phase : <code>4,3,2,1,0</code>) :<br />
+</p>
+<pre class="intcode"><code>3,15,3,16,1002,16,10,16,1,16,15,15,4,15,99,0,0</code></pre>
+<ul>
+<li>Le signal maximal vers les propulseurs est <code>&lt;em&gt;54321&lt;/em&gt;</code> (séquence de phase : <code>0,1,2,3,4</code>) :<br />
+</li>
+</ul>
+<pre class="intcode"><code>3,23,3,24,1002,24,10,24,1002,23,-1,23,
+101,5,23,23,1,24,23,23,4,23,99,0,0</code></pre>
+<ul>
+<li>Le signal maximal vers les propulseurs est <code>&lt;em&gt;65210&lt;/em&gt;</code> (séquence de phase : <code>1,0,4,3,2</code>) :<br />
+</li>
+</ul>
+<pre class="intcode"><code>3,31,3,32,1002,32,10,32,1001,31,-2,31,1007,31,0,33,
+1002,33,7,33,1,33,31,31,1,32,31,31,4,31,99,0,0,0</code></pre>
+<p>Essayez chaque combinaison des paramètres de phase sur les amplificateurs. <em>Quelle est le signal le plus élevé pouvant être envoyé aux propulseurs</em> ?</p>
+</section> 
+<section id='translation_part_two'> 
+<h2 id="partie-deux">— Partie Deux —</h2>
+<p>Ça ne va pas. Dans cette configuration, les amplificateurs ne peuvent pas produire un signal assez grand signal en sortie pour produire la poussée dont vous aurez besoin. Les elfes vous parlent rapidement de recâbler les amplificateurs pour former une <em>boucle de rétroaction</em> :</p>
+<pre><code>      O-------O  O-------O  O-------O  O-------O  O-------O
+0 -+-&gt;| Amp A |-&gt;| Amp B |-&gt;| Amp C |-&gt;| Amp D |-&gt;| Amp E |-.
+   |  O-------O  O-------O  O-------O  O-------O  O-------O |
+   |                                                        |
+   &#39;--------------------------------------------------------+
+                                                            |
+                                                            v
+                                                      (propulseurs)</code></pre>
+<p>La plupart des amplificateurs sont connectés comme ils l’étaient plus tôt, c’est-à-dire que l’amplificateur <code>A</code> a sa sortie reliée à l’entrée de l’amplificateur <code>B</code>, et ainsi de suite. <em>Cependant</em>, la sortie de l’amplificateur <code>E</code> est maintenant connecté à l’entrée de l’amplificateur <code>A</code>. Cela crée une boucle de rétroaction : le signal sera envoyé à travers les amplificateurs <em>plusieurs fois</em>.</p>
+<p>En mode boucle de rétroaction, les amplificateurs ont besoin de <em>modes de phase totalement différents</em> : les entiers de <code>5</code> à <code>9</code>, à nouveau utilisés chacun exactement une fois. Ces réglages permettront au logiciel de contrôle d’amplificateur de prendre un signal et d’en ressortir un plusieurs fois avant de se stopper. Fournissez d’abord à chaque amplificateur son paramètre de phase, toutes les autres entrées/sorties sont destinées aux signaux.</p>
+<p>Ne redémarrez pas le logiciel de contrôle d’amplificateur sur quelque amplificateur que ce soir durant ce processus. Chaque amplificateur devrait continuer à envoyer et à recevoir des signaux jusqu’à leurs arrêts.</p>
+<p>Tous les signaux envoyés ou reçus pendant ce processus le seront entre paires d’amplificateurs, excepté le tout premier signal d’entré, et le tout dernier sorti. Pour démarrer le processus, un signal de <code>0</code> doit être envoyé dans <code>A</code> <em>une seule et unique fois</em>.</p>
+<p>Au bout d’un moment, le logiciel sur les amplificateurs s’arrêtera après qu’ils aient traversé la dernière boucle. Lorsque cela arrivera, le dernier signal à sortir de <code>E</code> sera celui devant être envoyé aux propulseurs. Votre job ici est de <em>trouver le plus grand signal en sortie pouvant être envoyé aux propulseurs</em> en utilisant les nouveaux paramètres de phase ainsi que le nouveau câblage en boucle de rétroaction.</p>
+<p>Voici un exemple de programmes :</p>
+<ul>
+<li>Le signal maximal vers les propulseurs est <code>&lt;em&gt;139629729&lt;/em&gt;</code> (séquence de phase : <code>9,8,7,6,5</code>) :<br />
+</li>
+</ul>
+<pre class="intcode"><code>3,26,1001,26,-4,26,3,27,1002,27,2,27,1,27,26,
+27,4,27,1001,28,-1,28,1005,28,6,99,0,0,5</code></pre>
+<ul>
+<li>Le signal maximal vers les propulseurs est <code>&lt;em&gt;18216&lt;/em&gt;</code> (séquence de phase : <code>9,7,8,5,6</code>) :<br />
+</li>
+</ul>
+<pre class="intcode"><code>3,52,1001,52,-5,52,3,53,1,52,56,54,1007,54,5,55,1005,55,26,1001,54,
+-5,54,1105,1,12,1,53,54,53,1008,54,0,55,1001,55,1,55,2,53,55,53,4,
+53,1001,56,-1,56,1005,56,6,99,0,0,0,0,10</code></pre>
+<p>Essayez chaque combinaison des nouveaux paramètres de phases sur les amplificateurs montés en boucle de rétroaction. <em>Quel est le plus haut signal pouvant être envoyé aux propulseurs ?</em></p>
+</section> 

@@ -1,0 +1,44 @@
+<section id='translation_part_one'> 
+<h2 id="jour-8-format-dimages-spatial">— Jour 8 : Format d’Images Spatial —</h2>
+<p>Le moral des elfes remonte lorsqu’ils remarquent que vous avez la possibilité de redémarrer l’un de leurs rovers martiens, et vous demandent alors si vous accepteriez de faire un bref séjour sur Mars. Vous faites atterrir le vaisseau près du rover.</p>
+<p>Quand vous atteignez le rover, vous découvrez qu’il est en fait déjà en train de redémarrer ! Il attends simplement que quelqu’un entre le mot-de-passe de son <a href="https://fr.wikipedia.org/wiki/BIOS_(informatique)">BIOS</a>. L’elfe responsable du rover prends une photo du mot-de-passe (l’entrée de votre puzzle) et vous l’envoie via le Réseau Digital d’Envoi.</p>
+<p>Hélas, les images envoyées par le Réseau Digital d’Envoi ne sont pas encodées dans un format habituel ; à la place, elles sont encodées en Format d’Images Spatial. Aucun des elfes ne se souvient de la raison de cette différence. Ils vous envoient des instructions pour le décoder.</p>
+<p>Les images sont envoyées en tant que séries de chiffres représentant chacun la couleur d’un unique pixel. Les chiffres remplissent chaque ligne d’une image de gauche à droite, puis se déplacent vers la ligne du dessous, remplissant les lignes une par une de haut en bas jusqu’à ce que chaque pixel de l’image soit rempli.</p>
+<p>Chaque image est définie en réalité par une série de <em>couches</em> de tailles identiques, remplies de cette manière. En conséquence, le premier chiffre correspond au coin supérieur-gauche de la première couche, le second chiffre au pixel directement situé à droite du coin supérieur-gauche sur cette même couche, et ainsi de suite jusqu’au dernier chiffre, correspondant au coin inférieur-droit de la dernière couche.</p>
+<p>Par exemple, en admettant une image de <code>3</code> pixels de long sur <code>2</code> pixels de haut, les données d’images <code>123456789012</code> correspond aux couches suivante :</p>
+<pre><code>Couche 1 : 123
+           456
+
+Couche 2 : 789
+           012</code></pre>
+<p>L’image que vous avez reçue est de *<code>25</code> pixels de long sur <code>6</code> pixels de haut`.</p>
+<p>Pour s’assurer que l’image n’a pas été corrompue pendant la transmission, les elfes voudraient que vous trouviez la couche contenant <em>le moins de chiffres <code>0</code></em>. Sur cette couche, quel est <em>le nombre de chiffres <code>1</code> multiplié par le nombre de chiffres <code>2</code> ?</em></p>
+</section> 
+<section id='translation_part_two'> 
+<h2 id="partie-deux">— Partie Deux —</h2>
+<p>Maintenant, vous êtes prêt à décoder l’image. L’image est rendue en empilant les couches (en alignant les pixels de même position sur chaque couche). Les chiffres indiquent la couleur du pixel : <code>0</code> corresponds au noir, <code>1</code> corresponds au blanc, et <code>2</code> corresponds à de la transparence.</p>
+<p>Les couches sont rendues avec la première couche devant et la dernière couche en arrière-plan. Donc si une position donnée est transparente sur la première et la deuxième couche, noire sur la troisième et blanche sur la quatrième, l’image finale aura un pixel <em>noir</em> à cette position.</p>
+<p>Par exemple, admettant une image de <code>2</code> pixels de long sur <code>2</code> pixels de haut, les données d’images <code>0222112222120000</code> correspondent à l’image suivante :</p>
+<pre><code>Layer 1: &lt;em&gt;0&lt;/em&gt;2
+         22
+
+Layer 2: 1&lt;em&gt;1&lt;/em&gt;
+         22
+
+Layer 3: 22
+         &lt;em&gt;1&lt;/em&gt;2
+
+Layer 4: 00
+         0&lt;em&gt;0&lt;/em&gt;</code></pre>
+<p>Ensuite, l’image complète peut être trouvée en déterminant le pixel “le plus haut de la pile” à chaque position :</p>
+<ul>
+<li>Le pixel supérieur-gauche est <em>noir</em> puisque la couche du dessus (première couche) y est à <code>0</code>.</li>
+<li>Le pixel supérieur-droit est <em>blanc</em> puisque la première couche y sont à <code>2</code> (transparentes), mais la seconde y est à <code>1</code>.</li>
+<li>Le pixel inférieur-gauche est <em>blanc</em>, car les deux couches les plus hautes y sont à <code>2</code>, mais la troisième y est à <code>1</code>.</li>
+<li>Le pixel inférieur-droit est <em>noir</em>, car le seul pixel visible à cette position est à <code>0</code>, sur la couche la plus en arrière-plan.</li>
+</ul>
+<p>DOnc, l’image finale ressemble à ceci :</p>
+<pre><code>01
+10</code></pre>
+<p><em>Quel message apparaît après avoir décodé votre image ?</em></p>
+</section> 
