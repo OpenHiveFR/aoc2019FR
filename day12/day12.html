@@ -5,13 +5,13 @@
 </head> 
 <body> 
 <section id='translation_part_one'> 
-<h2 id="jour-12-le-problème-a-n-corps">— Jour 12 : Le problème a N corps —</h2>
-<p>l’espace proche de jupiter n’est pas un lieu très hospitalier : vous devez faire attention à une <a href="https://fr.wikipedia.org/wiki/Grande_Tache_rouge">grande tache rouge distrayante</a>, à d’extrêmes niveaux de <a href="https://fr.wikipedia.org/wiki/Magn%C3%A9tosph%C3%A8re_de_Jupiter">radiations</a>, et a un <a href="https://fr.wikipedia.org/wiki/Satellites_naturels_de_Jupiter#Table">sacré paquet de lunes</a> tournoyant dans le coin. Vous décidez de commencer en pistant les quatre plus grandes lunes : <em>Io</em>, <em>Europe</em>, <em>Ganymède</em> et <em>Callisto</em>.</p>
-<p>Après un bref scan, vous calculez la <em>position de chaque lune</em> (l’entrée de votre puzzle). Vous devez simplement <em>simuler leurs mouvements</em> pour les éviter.</p>
+<h2 id="jour-12-le-problème-a-n-corps----">--- Jour 12 : Le problème a N corps ---</h2>
+<p>l'espace proche de jupiter n'est pas un lieu très hospitalier : vous devez faire attention à une <a href="https://fr.wikipedia.org/wiki/Grande_Tache_rouge">grande tache rouge distrayante</a>, à d'extrêmes niveaux de <a href="https://fr.wikipedia.org/wiki/Magn%C3%A9tosph%C3%A8re_de_Jupiter">radiations</a>, et a un <a href="https://fr.wikipedia.org/wiki/Satellites_naturels_de_Jupiter#Table">sacré paquet de lunes</a> tournoyant dans le coin. Vous décidez de commencer en pistant les quatre plus grandes lunes : <em>Io</em>, <em>Europe</em>, <em>Ganymède</em> et <em>Callisto</em>.</p>
+<p>Après un bref scan, vous calculez la <em>position de chaque lune</em> (l'entrée de votre puzzle). Vous devez simplement <em>simuler leurs mouvements</em> pour les éviter.</p>
 <p>Chaque lune possède une position en trois dimensions (<code>x</code>, <code>y</code>, et <code>z</code>) et une vélocité en trois dimensions (toujours <code>x</code>, <code>y</code> et <code>z</code>). La position de chaque lune vous est donnée par votre scan, et les trois dimensions de la vélocité de chaque lune commence à <code>0</code>.</p>
-<p>Simulez les mouvements des lunes en <em>étapes de temps</em>. Pendant chacune de ces étapes, commencez par mettre à jour la vélocité de chaque lune en leur appliquant la <em>gravité</em>. Ensuite, une fois que tous les vélocités auront été mises à jour, mettez à jour la position de chaque lune en leur appliquant leurs vélocités. Le temps avance d’une étape une fois que toutes les positions sont mises à jour.</p>
-<p>Pour appliquer la <em>gravité</em>, prenez une <em>paire</em> de lunes. Sur chaque axe (<code>x</code>, <code>y</code> et <code>z</code>), la vélocité de chaque lune est modifiée d’<em>exactement +1 ou -1</em> pour tirer les lunes l’une à l’autre. Par exemple, si Ganymède a une position <code>x</code> de <code>3</code>, et que Callisto a une position <code>x</code> de <code>5</code>, alors la dimension <code>x</code> de la vélocité de Ganymède <em>est modifiée de +1</em> (car <code>5 &gt; 3</code>) et celle de la dimension <code>x</code> de Callisto <em>est modifiée de -1</em> (car <code>3 &lt; 5</code>). Cependant, si les positions sur un axe données sont identiques, les vélocités <em>ne sont pas modifiés</em> sur cet axe pour cette paire de lunes.</p>
-<p>Une fois la gravité appliquée, appliquez la vélocité : ajoutez simplement la vélocité de chaque lune à sa propre position. Par exemple, si Europe a une position de <code>x=1, y=2, z=3</code> et une vélocité de <code>x=-2, y=0, z=3</code>, alors sa nouvelle position sera <code>x=-1, y=é, z=6</code>. Ce procédé ne modifie la vélocité d’aucune lune.</p>
+<p>Simulez les mouvements des lunes en <em>étapes de temps</em>. Pendant chacune de ces étapes, commencez par mettre à jour la vélocité de chaque lune en leur appliquant la <em>gravité</em>. Ensuite, une fois que tous les vélocités auront été mises à jour, mettez à jour la position de chaque lune en leur appliquant leurs vélocités. Le temps avance d'une étape une fois que toutes les positions sont mises à jour.</p>
+<p>Pour appliquer la <em>gravité</em>, prenez une <em>paire</em> de lunes. Sur chaque axe (<code>x</code>, <code>y</code> et <code>z</code>), la vélocité de chaque lune est modifiée d'<em>exactement +1 ou -1</em> pour tirer les lunes l'une à l'autre. Par exemple, si Ganymède a une position <code>x</code> de <code>3</code>, et que Callisto a une position <code>x</code> de <code>5</code>, alors la dimension <code>x</code> de la vélocité de Ganymède <em>est modifiée de +1</em> (car <code>5 &gt; 3</code>) et celle de la dimension <code>x</code> de Callisto <em>est modifiée de -1</em> (car <code>3 &lt; 5</code>). Cependant, si les positions sur un axe données sont identiques, les vélocités <em>ne sont pas modifiés</em> sur cet axe pour cette paire de lunes.</p>
+<p>Une fois la gravité appliquée, appliquez la vélocité : ajoutez simplement la vélocité de chaque lune à sa propre position. Par exemple, si Europe a une position de <code>x=1, y=2, z=3</code> et une vélocité de <code>x=-2, y=0, z=3</code>, alors sa nouvelle position sera <code>x=-1, y=é, z=6</code>. Ce procédé ne modifie la vélocité d'aucune lune.</p>
 <p>Par exemple, supposez que votre scan révèle les positions suivantes :</p>
 <pre><code>&lt;x=-1, y=0, z=2&gt;
 &lt;x=2, y=-10, z=-7&gt;
@@ -82,14 +82,14 @@ pos=&lt;x= 2, y= 1, z=-3&gt;, vel=&lt;x=-3, y=-2, z= 1&gt;
 pos=&lt;x= 1, y=-8, z= 0&gt;, vel=&lt;x=-1, y= 1, z= 3&gt;
 pos=&lt;x= 3, y=-6, z= 1&gt;, vel=&lt;x= 3, y= 2, z=-3&gt;
 pos=&lt;x= 2, y= 0, z= 4&gt;, vel=&lt;x= 1, y=-1, z=-1&gt;</code></pre>
-<p>Ensuite, il pourrait se révéler utile de calculer <em>l’énergie totale du système</em>. L’énergie totale d’une seule lune est son <em>énergie potentielle</em> multipliée par <em>son énergie cinétique</em>. L’<em>énergie potentielle</em> d’une lune est la somme des <a href="https://fr.wikipedia.org/wiki/Valeur_absolue">valeurs absolues</a> de ces coordonnées de position <code>x</code>, <code>y</code> et <code>z</code>. L’<em>énergie cinétique</em> d’une lune est la somme des valeurs absolues des valeurs <code>x</code>, <code>y</code> et <code>z</code> de sa vélocité. Ci-dessous, chaque ligne montre les calculs des énergiespotentielle (<code>pot</code>), cinétique (<code>cin</code>) et totale (<code>total</code>) pour les quatre lunes de l’exemple du dessus :</p>
+<p>Ensuite, il pourrait se révéler utile de calculer <em>l'énergie totale du système</em>. L'énergie totale d'une seule lune est son <em>énergie potentielle</em> multipliée par <em>son énergie cinétique</em>. L'<em>énergie potentielle</em> d'une lune est la somme des <a href="https://fr.wikipedia.org/wiki/Valeur_absolue">valeurs absolues</a> de ces coordonnées de position <code>x</code>, <code>y</code> et <code>z</code>. L'<em>énergie cinétique</em> d'une lune est la somme des valeurs absolues des valeurs <code>x</code>, <code>y</code> et <code>z</code> de sa vélocité. Ci-dessous, chaque ligne montre les calculs des énergiespotentielle (<code>pot</code>), cinétique (<code>cin</code>) et totale (<code>total</code>) pour les quatre lunes de l'exemple du dessus :</p>
 <pre><code>Énergie après 10 étapes :
 pot : 2 + 1 + 3 =  6;   cin : 3 + 2 + 1 = 6;   total :  6 * 6 = 36
 pot : 1 + 8 + 0 =  9;   cin : 1 + 1 + 3 = 5;   total :  9 * 5 = 45
 pot : 3 + 6 + 1 = 10;   cin : 3 + 2 + 3 = 8;   total : 10 * 8 = 80
 pot : 2 + 0 + 4 =  6;   cin : 1 + 1 + 1 = 3;   total :  6 * 3 = 18
 Somme d&#39;énergie totale : 36 + 45 + 80 + 18 = &lt;em&gt;179&lt;/em&gt;</code></pre>
-<p>Pour l’exemple ci-dessus, additionner les énergies totales de toutes les lunes après 10 étapes donne l’énergie totale du système, <code>&lt;em&gt;179&lt;/em&gt;</code>.</p>
+<p>Pour l'exemple ci-dessus, additionner les énergies totales de toutes les lunes après 10 étapes donne l'énergie totale du système, <code>&lt;em&gt;179&lt;/em&gt;</code>.</p>
 <p>Voici un second exemple :</p>
 <pre><code>&lt;x=-8, y=-10, z=0&gt;
 &lt;x=5, y=5, z=10&gt;
@@ -168,13 +168,13 @@ pot : 13 + 16 +  3 = 32;   cin : 3 + 11 + 5 = 19;   total : 32 * 19 = 608
 pot : 29 + 11 +  1 = 41;   cin : 3 +  7 + 4 = 14;   total : 41 * 14 = 574
 pot : 16 + 13 + 23 = 52;   cin : 7 +  1 + 1 =  9;   total : 52 *  9 = 468
 Somme d&#39;énergie totale : 290 + 608 + 574 + 468 = &lt;em&gt;1940&lt;/em&gt;</code></pre>
-<p><em>Quelle est l’énergie totale dans le système</em> après avoir simulé le mouvement des lunes données par votre scan pendant <code>1000</code> pas ?</p>
+<p><em>Quelle est l'énergie totale dans le système</em> après avoir simulé le mouvement des lunes données par votre scan pendant <code>1000</code> pas ?</p>
 </section> 
 <section id='translation_part_two'> 
-<h2 id="partie-deux">— Partie Deux —</h2>
-<p>Tous ces dérapages dans l’espace vous font réfléchir sur la nature de l’univers. L’histoire se répète-t-elle vraiment ? Vous vous demandez si les lunes retourneront un jour à leur emplacement d’origine.</p>
-<p>Déterminez <em>le nombre d’étapes</em> devant avoir lieu avant que les positions et vélocités de <em>toutes les lunes</em> ne retournent à leur état initial.</p>
-<p>Par exemple, dans le premier exemple, il faut <code>2772</code> étapes avant qu’elles ne reviennent à leur état initial :</p>
+<h2 id="partie-deux----">--- Partie Deux ---</h2>
+<p>Tous ces dérapages dans l'espace vous font réfléchir sur la nature de l'univers. L'histoire se répète-t-elle vraiment ? Vous vous demandez si les lunes retourneront un jour à leur emplacement d'origine.</p>
+<p>Déterminez <em>le nombre d'étapes</em> devant avoir lieu avant que les positions et vélocités de <em>toutes les lunes</em> ne retournent à leur état initial.</p>
+<p>Par exemple, dans le premier exemple, il faut <code>2772</code> étapes avant qu'elles ne reviennent à leur état initial :</p>
 <pre><code>Après 0 étapes:
 pos=&lt;x= -1, y=  0, z=  2&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
 pos=&lt;x=  2, y=-10, z= -7&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
@@ -198,13 +198,13 @@ pos=&lt;x= -1, y=  0, z=  2&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
 pos=&lt;x=  2, y=-10, z= -7&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
 pos=&lt;x=  4, y= -8, z=  8&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;
 pos=&lt;x=  3, y=  5, z= -1&gt;, vel=&lt;x=  0, y=  0, z=  0&gt;</code></pre>
-<p>Bien sûr, l’univers pourrait rester <em>très très longtemps</em> sans se répéter. Voici une copie du second exemple plus haut :</p>
+<p>Bien sûr, l'univers pourrait rester <em>très très longtemps</em> sans se répéter. Voici une copie du second exemple plus haut :</p>
 <pre><code>&lt;x=-8, y=-10, z=0&gt;
 &lt;x=5, y=5, z=10&gt;
 &lt;x=2, y=-7, z=3&gt;
 &lt;x=9, y=-8, z=-3&gt;</code></pre>
-<p>Cet ensemble de positions initiales mets <code>4686774924</code> étapes avant de revenir à un état précédent ! Clairement, vous devez trouver <em>un moyen de simuler l’univers plus efficacement</em></p>
-<p><em>Combien d’étapes faut-il</em> pour trouver le premier état correspondant parfaitement à un état précédent ?</p>
+<p>Cet ensemble de positions initiales mets <code>4686774924</code> étapes avant de revenir à un état précédent ! Clairement, vous devez trouver <em>un moyen de simuler l'univers plus efficacement</em></p>
+<p><em>Combien d'étapes faut-il</em> pour trouver le premier état correspondant parfaitement à un état précédent ?</p>
 </section> 
 </body> 
 </html> 

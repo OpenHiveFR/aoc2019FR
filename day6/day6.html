@@ -5,9 +5,9 @@
 </head> 
 <body> 
 <section id='translation_part_one'> 
-<h2 id="jour-6-carte-universelle-des-orbites">— Jour 6 : Carte Universelle des Orbites —</h2>
-<p>Vous avez atterri a la station de Carte Universelle des Orbites sur Mercure. Comme la navigation spatiale consistes souvent à effectuer des transferts d’orbite à orbite, les cartes d’orbites trouvables ici sont utiles pour trouver des routes efficace entre, par exemple, le Père Noël et vous. Vous téléchargez une carte des orbites locales (votre entrée de puzzle).</p>
-<p>Mis à part le Centre Orbital Majeur (<code>COM</code>), chaque objet dans l’espace est en orbite autour d’exactement un autre objet. Une <a href="https://fr.wikipedia.org/wiki/Orbite">orbite</a> ressemble grossièrement à ceci :</p>
+<h2 id="jour-6-carte-universelle-des-orbites----">--- Jour 6 : Carte Universelle des Orbites ---</h2>
+<p>Vous avez atterri a la station de Carte Universelle des Orbites sur Mercure. Comme la navigation spatiale consistes souvent à effectuer des transferts d'orbite à orbite, les cartes d'orbites trouvables ici sont utiles pour trouver des routes efficace entre, par exemple, le Père Noël et vous. Vous téléchargez une carte des orbites locales (votre entrée de puzzle).</p>
+<p>Mis à part le Centre Orbital Majeur (<code>COM</code>), chaque objet dans l'espace est en orbite autour d'exactement un autre objet. Une <a href="https://fr.wikipedia.org/wiki/Orbite">orbite</a> ressemble grossièrement à ceci :</p>
 <pre><code>                  \
                    \
                     |
@@ -17,9 +17,9 @@ AAA--&gt; o            o &lt;--BBB
                     |
                    /
                   /</code></pre>
-<p>Dans ce diagramme, l’objet <code>BBB</code> orbite autour de <code>AAA</code>. Le chemin que <code>BBB</code> prends autour de <code>AAA</code> (dessiné avec des lignes) est seulement partiellement dessiné. Dans les données de la carte, la relation orbitale est notée <code>AAA)BBB</code>, ce qui signifie “<code>BBB</code> orbite autour de <code>AAA</code>”.</p>
-<p>Avant d’utiliser les données de votre carte pour planifier votre chemin, vous allez devoir vous assurer qu’elle n’ait pas été corrompue lors du téléchargement. Pour vérifier les cartes, la station de Carte Universelle des Orbites utilise la <em>somme de contrôle par comptage d’orbites</em> (le nombre total <em>d’orbites directes</em> et <em>d’orbites indirectes</em>).</p>
-<p>Lorsque <code>A</code> orbite autour de <code>B</code> et que <code>B</code> orbite autour de <code>C</code>, <code>A</code> <em>orbite indirectement autour de</em> <code>C</code>. Cette chaîne n’a pas de limite de longueur : si <code>A</code> orbite autour de <code>B</code>, <code>B</code> autour de <code>C</code>, et <code>C</code> autour de <code>D</code>, alors <code>A</code> orbite aussi indirectement autour de <code>D</code>.</p>
+<p>Dans ce diagramme, l'objet <code>BBB</code> orbite autour de <code>AAA</code>. Le chemin que <code>BBB</code> prends autour de <code>AAA</code> (dessiné avec des lignes) est seulement partiellement dessiné. Dans les données de la carte, la relation orbitale est notée <code>AAA)BBB</code>, ce qui signifie "<code>BBB</code> orbite autour de <code>AAA</code>".</p>
+<p>Avant d'utiliser les données de votre carte pour planifier votre chemin, vous allez devoir vous assurer qu'elle n'ait pas été corrompue lors du téléchargement. Pour vérifier les cartes, la station de Carte Universelle des Orbites utilise la <em>somme de contrôle par comptage d'orbites</em> (le nombre total <em>d'orbites directes</em> et <em>d'orbites indirectes</em>).</p>
+<p>Lorsque <code>A</code> orbite autour de <code>B</code> et que <code>B</code> orbite autour de <code>C</code>, <code>A</code> <em>orbite indirectement autour de</em> <code>C</code>. Cette chaîne n'a pas de limite de longueur : si <code>A</code> orbite autour de <code>B</code>, <code>B</code> autour de <code>C</code>, et <code>C</code> autour de <code>D</code>, alors <code>A</code> orbite aussi indirectement autour de <code>D</code>.</p>
 <p>Par exemple, supposons que vous obteniez la carte suivante :</p>
 <pre><code>COM)B
 B)C
@@ -39,19 +39,19 @@ COM - B - C - D - E - F
                \
                 I</code></pre>
 <p>Dans cette représentation visuelle, quand deux objets sont connectés par une ligne, celui de droite orbite directement autour de celui de gauche.</p>
-<p>Dès lors, il est possible de compter le nombre total d’orbites comme suit :</p>
+<p>Dès lors, il est possible de compter le nombre total d'orbites comme suit :</p>
 <ul>
 <li><code>D</code> orbite directement autour de <code>C</code> et indirectement autour de <code>B</code> et du <code>COM</code>, pour un total de <code>3</code> orbites.</li>
 <li><code>L</code> orbite directement autour de <code>K</code> et indirectement autour de <code>J</code>, <code>E</code>, <code>D</code>, <code>C</code>, <code>B</code> et du <code>COM</code>, pour un total de <code>7</code> orbites.</li>
-<li>Le <code>COM</code> n’orbite autour de rien.</li>
+<li>Le <code>COM</code> n'orbite autour de rien.</li>
 </ul>
-<p>Le nombre total d’orbites directes et indirectes dans cet exemple est <code>&lt;em&gt;42&lt;/em&gt;</code>.</p>
-<p><em>Quel est le nombre total d’orbites directes et indirectes</em> dans les données de votre carte ?</p>
+<p>Le nombre total d'orbites directes et indirectes dans cet exemple est <code>&lt;em&gt;42&lt;/em&gt;</code>.</p>
+<p><em>Quel est le nombre total d'orbites directes et indirectes</em> dans les données de votre carte ?</p>
 </section> 
 <section id='translation_part_two'> 
-<h2 id="partie-deux">— Partie Deux —</h2>
-<p>Maintenant, il vous suffit de trouver combien de <em>transferts orbitaux</em> sont requis pour voyager de l’orbite de Mercure (autour de laquelle orbite <code>YOU</code>, votre vaisseau) et l’orbite de la localisation actuelle du Père Noël (<code>SAN</code>)le plus efficacement possible. En somme, <code>YOU</code> et <code>SAN</code> devront après votre déplacement être en orbite autour du même objet.</p>
-<p>Vous démarrez depuis l’objet orbité par l’objet autour duquel vos orbitez actuellement, identifié <code>YOU</code>, et devez voyager vers l’objet orbité par l’objet où le Père Noël se trouve, identifié <code>SAN</code>. Un transfert orbital vous permet de vous déplacer d’un objet quelconque jusqu’à n’importe quel objet qui l’orbitent, ou jusqu’à l’objet qu’il orbite lui-même.</p>
+<h2 id="partie-deux----">--- Partie Deux ---</h2>
+<p>Maintenant, il vous suffit de trouver combien de <em>transferts orbitaux</em> sont requis pour voyager de l'orbite de Mercure (autour de laquelle orbite <code>YOU</code>, votre vaisseau) et l'orbite de la localisation actuelle du Père Noël (<code>SAN</code>)le plus efficacement possible. En somme, <code>YOU</code> et <code>SAN</code> devront après votre déplacement être en orbite autour du même objet.</p>
+<p>Vous démarrez depuis l'objet orbité par l'objet autour duquel vos orbitez actuellement, identifié <code>YOU</code>, et devez voyager vers l'objet orbité par l'objet où le Père Noël se trouve, identifié <code>SAN</code>. Un transfert orbital vous permet de vous déplacer d'un objet quelconque jusqu'à n'importe quel objet qui l'orbitent, ou jusqu'à l'objet qu'il orbite lui-même.</p>
 <p>Par exemple, supposons que vous ayez cette carte :</p>
 <pre><code>COM)B
 B)C
@@ -74,7 +74,7 @@ I)SAN</code></pre>
 COM - B - C - &lt;em&gt;D - E&lt;/em&gt; - F
                \
                 &lt;em&gt;I - SAN&lt;/em&gt;</code></pre>
-<p>Dans cet exemple, l’objet <code>YOU</code> (d’où vous démarrez) orbite autour de <code>K</code>, et <code>SAN</code> (où vous souhaitez vous rendre) orbite autour de <code>I</code>. Pour vous déplacer de <code>K</code> à <code>I</code>, un minimum de <code>4</code> orbites sont requises :</p>
+<p>Dans cet exemple, l'objet <code>YOU</code> (d'où vous démarrez) orbite autour de <code>K</code>, et <code>SAN</code> (où vous souhaitez vous rendre) orbite autour de <code>I</code>. Pour vous déplacer de <code>K</code> à <code>I</code>, un minimum de <code>4</code> orbites sont requises :</p>
 <ul>
 <li>De <code>K</code> à <code>J</code></li>
 <li>De <code>J</code> à <code>E</code></li>
@@ -89,7 +89,7 @@ COM - B - C - D - E - F
                 I - SAN
                  &lt;em&gt;\&lt;/em&gt;
                   &lt;em&gt;YOU&lt;/em&gt;</code></pre>
-<p><em>Quel est le nombre minimum de transferts orbitaux requis</em> pour vous déplacer de l’objet orbité par <code>YOU</code> à celui orbité par <code>SAN</code> (Entre les objets orbités par <code>YOU</code> et <code>SAN</code>, <em>pas</em> directement entre <code>YOU</code> et <code>SAN</code>) ?</p>
+<p><em>Quel est le nombre minimum de transferts orbitaux requis</em> pour vous déplacer de l'objet orbité par <code>YOU</code> à celui orbité par <code>SAN</code> (Entre les objets orbités par <code>YOU</code> et <code>SAN</code>, <em>pas</em> directement entre <code>YOU</code> et <code>SAN</code>) ?</p>
 </section> 
 </body> 
 </html> 

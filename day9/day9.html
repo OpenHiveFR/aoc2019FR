@@ -5,39 +5,39 @@
 </head> 
 <body> 
 <section id='translation_part_one'> 
-<h2 id="jour-9-renfort-de-senseur">— Jour 9 : Renfort de senseur —</h2>
-<p>Vous venez de faire vos adieux au rover redémarré et avez quitté Mars quand vous recevez un infime signal de détresse provenant de la ceinture d’astéroïdes. Ça doit venir de la station d’observation Cérès !</p>
+<h2 id="jour-9-renfort-de-senseur----">--- Jour 9 : Renfort de senseur ---</h2>
+<p>Vous venez de faire vos adieux au rover redémarré et avez quitté Mars quand vous recevez un infime signal de détresse provenant de la ceinture d'astéroïdes. Ça doit venir de la station d'observation Cérès !</p>
 <p>Afin de verrouiller ce signal, vous allez devoir renforcer vos senseurs. Les elfes vous envoient la dernière version du programme <em>BOOST</em> (Basique Opérateur Omnipotent de Systèmes à Tester).</p>
-<p>Si le BOOST (l’entrée de votre puzzle) est capable de renforcer vos senseurs, pour des raisons de sécurité, il refusera de le faire avant que l’ordinateur sur lequel il est exécuté passe quelques vérifications pour vérifier s’il est bien un <em>ordinateur Intcode complet</em>.</p>
-<p><a href="https://openhivefr.github.io/summercode/2020/day/9">Votre ordinateur Intcode déjà existant</a> manque d’une fonctionnalité clef : il a besoin de prendre en charge les paramètres <em>en mode relatif</em>.</p>
-<p>Les paramètres en mode <code>2</code>, le <em>mode relatif</em>, se comportent d’une manière similaire aux paramètres en mode <em>positionnel</em> : le paramètre est interprété en tant que position. Comme en mode positionnel, les paramètres en mode relatif peuvent servir à lire ou à écrire en mémoire.</p>
-<p>La différence la plus importante est que les paramètre en mode relatif ne sont pas définis depuis l’adresse <code>0</code>. À la place, ils sont comptés depuis une valeur appelée <em>base relative</em>. La <em>base relative</em> démarre à <code>0</code>.</p>
-<p>L’adresse à laquelle réfère un paramètre en mode relatif est sa valeur <em>à laquelle on ajoute</em> l’actuelle <em>base relative</em>. Quand la base relative est de <code>0</code>, les paramètres modes relatif et positionnel ayant la même valeur réfèrent donc à la même adresse.</p>
-<p>Par exemple, étant donnée une base relative de <code>50</code>, un paramètre en mode relatif valant <code>-7</code> réfère à l’adresse mémoire <code>50 + (-7) = &lt;em&gt;43&lt;/em&gt;</code>.</p>
-<p>La base relative est modifiée avec l’instruction <em>décalage de base relative</em> :</p>
+<p>Si le BOOST (l'entrée de votre puzzle) est capable de renforcer vos senseurs, pour des raisons de sécurité, il refusera de le faire avant que l'ordinateur sur lequel il est exécuté passe quelques vérifications pour vérifier s'il est bien un <em>ordinateur Intcode complet</em>.</p>
+<p><a href="https://openhivefr.github.io/summercode/2020/day/9">Votre ordinateur Intcode déjà existant</a> manque d'une fonctionnalité clef : il a besoin de prendre en charge les paramètres <em>en mode relatif</em>.</p>
+<p>Les paramètres en mode <code>2</code>, le <em>mode relatif</em>, se comportent d'une manière similaire aux paramètres en mode <em>positionnel</em> : le paramètre est interprété en tant que position. Comme en mode positionnel, les paramètres en mode relatif peuvent servir à lire ou à écrire en mémoire.</p>
+<p>La différence la plus importante est que les paramètre en mode relatif ne sont pas définis depuis l'adresse <code>0</code>. À la place, ils sont comptés depuis une valeur appelée <em>base relative</em>. La <em>base relative</em> démarre à <code>0</code>.</p>
+<p>L'adresse à laquelle réfère un paramètre en mode relatif est sa valeur <em>à laquelle on ajoute</em> l'actuelle <em>base relative</em>. Quand la base relative est de <code>0</code>, les paramètres modes relatif et positionnel ayant la même valeur réfèrent donc à la même adresse.</p>
+<p>Par exemple, étant donnée une base relative de <code>50</code>, un paramètre en mode relatif valant <code>-7</code> réfère à l'adresse mémoire <code>50 + (-7) = &lt;em&gt;43&lt;/em&gt;</code>.</p>
+<p>La base relative est modifiée avec l'instruction <em>décalage de base relative</em> :</p>
 <ul>
-<li>L’opcode <code>9</code> <em>ajuste la base relative</em> par la valeur de son seul paramètre. La base relative augmente (ou diminue, si la valeur est négative) de la valeur du paramètre.</li>
+<li>L'opcode <code>9</code> <em>ajuste la base relative</em> par la valeur de son seul paramètre. La base relative augmente (ou diminue, si la valeur est négative) de la valeur du paramètre.</li>
 </ul>
-<p>Par exemple, si la base relative est de <code>2000</code>, alors après l’instruction <code>109,19</code>, alors la base relative sera de <code>2019</code>. Si l’instruction suivante était <code>204,-34</code>, alors la valeur de l’adresse <code>1985</code> serait sortie.</p>
+<p>Par exemple, si la base relative est de <code>2000</code>, alors après l'instruction <code>109,19</code>, alors la base relative sera de <code>2019</code>. Si l'instruction suivante était <code>204,-34</code>, alors la valeur de l'adresse <code>1985</code> serait sortie.</p>
 <p>Votre ordinateur Intcode aura également besoin de quelques autres choses spécificités :</p>
 <ul>
-<li>La mémoire disponible de l’ordinateur devrait être bien plus grande que la longueur du programme initial. La mémoire au-delà de ce programme initial est initialisée à la valeur <code>0</code>, et on peut y écrire ou y lire des valeurs comme avec n’importe quel autre emplacement mémoire (on en peut cependant pas accéder ou écrire à une adresse négative).</li>
-<li>L’ordinateur devrait prendre en charge de très grands nombres. Certaines instructions au début du BOOST vérifieront ceci.</li>
+<li>La mémoire disponible de l'ordinateur devrait être bien plus grande que la longueur du programme initial. La mémoire au-delà de ce programme initial est initialisée à la valeur <code>0</code>, et on peut y écrire ou y lire des valeurs comme avec n'importe quel autre emplacement mémoire (on en peut cependant pas accéder ou écrire à une adresse négative).</li>
+<li>L'ordinateur devrait prendre en charge de très grands nombres. Certaines instructions au début du BOOST vérifieront ceci.</li>
 </ul>
 <p>Voici quelques exemples de programmes utilisant ces fonctionnalités :</p>
 <ul>
-<li><code>109,1,204,-1,1001,100,1,100,1008,100,16,101,1006,101,0,99</code> ne prends pas d’entrée et sort une <a href="https://fr.wikipedia.org/wiki/Quine_(informatique)">copie de lui-même</a>.</li>
+<li><code>109,1,204,-1,1001,100,1,100,1008,100,16,101,1006,101,0,99</code> ne prends pas d'entrée et sort une <a href="https://fr.wikipedia.org/wiki/Quine_(informatique)">copie de lui-même</a>.</li>
 <li><code>1102,34915192,34915192,7,4,7,99,0</code> devrait sortir un nombre à 16 chiffres.</li>
 <li><code>104,1125899906842624,99</code> devrait sortir le grand nombre du milieu.</li>
 </ul>
-<p>Le BOOST demandera une seule et unique entrée. Démarrez-le en mode test en lui fournissant l’entrée <code>1</code>. Ceci lui fera effectuer une suite de test sur chaque opcode, ressortant chaque opcode (avec les modes de paramètres lui ayant été associés) semblant être dysfonctionnels, et finira par sortir un code-clef de BOOST.</p>
-<p>Une fois que votre ordinateur Intcode sera complètement opérationnel, le programme BOOST ne devrait pas rapporter d’opcode dysfonctionnel en s’exécutant en mode test : il devrait sortir une unique valeur, le code-clef de BOOST. <em>Quel code-clef de BOOST produit-il ?</em></p>
+<p>Le BOOST demandera une seule et unique entrée. Démarrez-le en mode test en lui fournissant l'entrée <code>1</code>. Ceci lui fera effectuer une suite de test sur chaque opcode, ressortant chaque opcode (avec les modes de paramètres lui ayant été associés) semblant être dysfonctionnels, et finira par sortir un code-clef de BOOST.</p>
+<p>Une fois que votre ordinateur Intcode sera complètement opérationnel, le programme BOOST ne devrait pas rapporter d'opcode dysfonctionnel en s'exécutant en mode test : il devrait sortir une unique valeur, le code-clef de BOOST. <em>Quel code-clef de BOOST produit-il ?</em></p>
 </section> 
 <section id='translation_part_two'> 
-<h2 id="partie-deux">— Partie Deux —</h2>
+<h2 id="partie-deux----">--- Partie Deux ---</h2>
 <p><em>Vous possédez maintenant un ordinateur Intcode complet.</em></p>
-<p>Vous pouvez enfin verrouiller le signal de détresse de Cérès ! Vous devez juste renforcer vos senseurs à l’aide du programme BOOST.</p>
-<p>Le programme fait tourner les senseurs en mode renforcé quand on lui fournit l’entrée <code>2</code> en début d’exécution. Une fois démarré, il renforcera automatiquement les senseurs, mais il est possible que l’opération lui prenne plusieurs secondes sur un matériel lent. En mode renforcement de senseurs, le programme sortira une seule valeur : <em>les coordonnées du signal de détresse</em>.</p>
+<p>Vous pouvez enfin verrouiller le signal de détresse de Cérès ! Vous devez juste renforcer vos senseurs à l'aide du programme BOOST.</p>
+<p>Le programme fait tourner les senseurs en mode renforcé quand on lui fournit l'entrée <code>2</code> en début d'exécution. Une fois démarré, il renforcera automatiquement les senseurs, mais il est possible que l'opération lui prenne plusieurs secondes sur un matériel lent. En mode renforcement de senseurs, le programme sortira une seule valeur : <em>les coordonnées du signal de détresse</em>.</p>
 <p>Exécutez le BOOST en mode renforcement de senseurs. <em>Quelles sont les coordonnées du signal de détresse ?</em></p>
 </section> 
 </body> 

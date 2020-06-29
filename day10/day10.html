@@ -5,24 +5,24 @@
 </head> 
 <body> 
 <section id='translation_part_one'> 
-<h2 id="jour-10-station-dobservation">— Jour 10 : Station d’Observation —</h2>
-<p>Vous volez à travers la ceinture d’astéroïdes et atteignez la station d’observation Cérès. Les elfes présents ici ont un problème urgent : ils ont du mal à pister tous les astéroïdes et ne sont pas certains d’être hors de danger.</p>
-<p>Les elfes souhaiteraient construire une nouvelle station d’observation dans une zone proche dans l’espace. Ils vous tendent une carte de tous les astéroïdes de la région (l’entrée de votre puzzle).</p>
-<p>La carte indique pour chaque emplacement s’il est vide (<code>.</code>) ou s’il contient un astéroïde (<code>#</code>). Les astéroïdes sont bien plus petits que leurs représentations sur la carte, et chacun des astéroïdes est positionné exactement au centre de la position où il a été marqué. Les astéroïdes peuvent être de décrits par des coordonnées <code>X,Y</code>où <code>X</code> est la distance depuis la bordure gauche et <code>Y</code> la distance depuis la bordure haute (donc le coin supérieur-gauche est aux coordonnées <code>0,0</code> et la position immédiatement à sa droite est <code>1,0</code>).</p>
-<p>Votre rôle là-dedans est de trouver quel astéroïde serait le meilleur emplacement pour construire une <em>nouvelle station d’observation</em>. Une station d’observation est capable de <em>détecter</em> tout astéroïde avec lequel elle a une <em>ligne de vue directe</em>, c’est-à-dire sans autre astéroïde <em>exactement</em> entre eux. Cette ligne de vue peut être de n’importe quel angle, pas seulement les lignes de la grille ou en diagonale. Le <em>meilleur</em> emplacement est l’astéroïde permettant de <em>détecter</em> le plus grand nombre d’autres astéroïdes.</p>
+<h2 id="jour-10-station-dobservation----">--- Jour 10 : Station d'Observation ---</h2>
+<p>Vous volez à travers la ceinture d'astéroïdes et atteignez la station d'observation Cérès. Les elfes présents ici ont un problème urgent : ils ont du mal à pister tous les astéroïdes et ne sont pas certains d'être hors de danger.</p>
+<p>Les elfes souhaiteraient construire une nouvelle station d'observation dans une zone proche dans l'espace. Ils vous tendent une carte de tous les astéroïdes de la région (l'entrée de votre puzzle).</p>
+<p>La carte indique pour chaque emplacement s'il est vide (<code>.</code>) ou s'il contient un astéroïde (<code>#</code>). Les astéroïdes sont bien plus petits que leurs représentations sur la carte, et chacun des astéroïdes est positionné exactement au centre de la position où il a été marqué. Les astéroïdes peuvent être de décrits par des coordonnées <code>X,Y</code>où <code>X</code> est la distance depuis la bordure gauche et <code>Y</code> la distance depuis la bordure haute (donc le coin supérieur-gauche est aux coordonnées <code>0,0</code> et la position immédiatement à sa droite est <code>1,0</code>).</p>
+<p>Votre rôle là-dedans est de trouver quel astéroïde serait le meilleur emplacement pour construire une <em>nouvelle station d'observation</em>. Une station d'observation est capable de <em>détecter</em> tout astéroïde avec lequel elle a une <em>ligne de vue directe</em>, c'est-à-dire sans autre astéroïde <em>exactement</em> entre eux. Cette ligne de vue peut être de n'importe quel angle, pas seulement les lignes de la grille ou en diagonale. Le <em>meilleur</em> emplacement est l'astéroïde permettant de <em>détecter</em> le plus grand nombre d'autres astéroïdes.</p>
 <p>Pour illustrer tout ça, prenons la carte suivante :</p>
 <pre><code>.#..#
 .....
 #####
 ....#
 ...&lt;em&gt;#&lt;/em&gt;#</code></pre>
-<p>Le meilleur emplacement pour une nouvelle station d’observation sur cette carte est l’astéroïde surligné en position <code>3,4</code> puisqu’il peut détecter <code>8</code> astéroïdes, plus que n’importe quel autre emplacement possible (le seul astéroïde qu’il ne peut détecter est celui en position <code>1,0</code>, sa ligne de vue étant bloquée par l’astéroïde en position <code>2,2</code>). Tout les autres astéroïdes sont de moins bons emplacements : il ne peuvent détecter que <code>7</code> astéroïdes ou moins. Voilà le nombre d’astéroïde qu’une station d’observation sur chaque astéroïde pourrait détecter :</p>
+<p>Le meilleur emplacement pour une nouvelle station d'observation sur cette carte est l'astéroïde surligné en position <code>3,4</code> puisqu'il peut détecter <code>8</code> astéroïdes, plus que n'importe quel autre emplacement possible (le seul astéroïde qu'il ne peut détecter est celui en position <code>1,0</code>, sa ligne de vue étant bloquée par l'astéroïde en position <code>2,2</code>). Tout les autres astéroïdes sont de moins bons emplacements : il ne peuvent détecter que <code>7</code> astéroïdes ou moins. Voilà le nombre d'astéroïde qu'une station d'observation sur chaque astéroïde pourrait détecter :</p>
 <pre><code>.7..7
 .....
 67775
 ....7
 ...87</code></pre>
-<p>Voilà une carte comportant un astéroïde <code>#</code> et quelques exemples de manières dont une ligne de vue peut être bloquée. Si un astéroïde était positionné sur l’emplacement d’une lettre majuscule, les emplacements marqués de la même lettre en minuscule serait bloqués, et ne pourraient ainsi pas être détectés depuis l’astéroïde <code>#</code> :</p>
+<p>Voilà une carte comportant un astéroïde <code>#</code> et quelques exemples de manières dont une ligne de vue peut être bloquée. Si un astéroïde était positionné sur l'emplacement d'une lettre majuscule, les emplacements marqués de la même lettre en minuscule serait bloqués, et ne pourraient ainsi pas être détectés depuis l'astéroïde <code>#</code> :</p>
 <pre><code>#.........
 ...A......
 ...B..a...
@@ -100,21 +100,21 @@
 .#.#.###########.###
 #.#.#.#####.####.###
 ###.##.####.##.#..##</code></pre>
-<p>Trouvez le meilleur emplacement pour une nouvelle station d’observation. <em>Combien d’autres astéroïdes peuvent être détectés depuis cet emplacement ?</em></p>
+<p>Trouvez le meilleur emplacement pour une nouvelle station d'observation. <em>Combien d'autres astéroïdes peuvent être détectés depuis cet emplacement ?</em></p>
 </section> 
 <section id='translation_part_two'> 
-<h2 id="partie-deux">— partie Deux —</h2>
-<p>Dès que vous leurs avez donné les coordonnées, les elfes déploient rapidement une Station Instantanée d’Observation à l’endroit que vous leurs avez indiqué et découvrent le pire : il y a simplement beaucoup trop d’astéroïdes.</p>
+<h2 id="partie-deux----">--- partie Deux ---</h2>
+<p>Dès que vous leurs avez donné les coordonnées, les elfes déploient rapidement une Station Instantanée d'Observation à l'endroit que vous leurs avez indiqué et découvrent le pire : il y a simplement beaucoup trop d'astéroïdes.</p>
 <p>La seule solution est <em>la vaporisation complète par laser géant</em>.</p>
-<p>Heureusement, en plus d’un scanner à astéroïdes, la nouvelle station d’observation est par défaut déjà équipée avec un laser rotatif géant, parfait pour vaporiser des astéroïdes. Le laser commence pointé <em>vers le haut</em>, et tourne toujours <em>dans le sens horaire</em>, vaporisant chaque astéroïde qu’il frappe.</p>
-<p>Si plusieurs astéroïdes sont <em>exactement</em> alignés avec la station, le laser n’a assez de puissance que pour en vaporiser <em>un seul</em> avant de continuer sa rotation. En d’autres termes, l’astéroïde pouvant être <em>détecté</em> peut être vaporisé, mais si vaporiser un astéroïde en rend un autre détectable, l’astéroïde nouvellement détecté ne sera pas vaporisé jusqu’à ce que le laser soit revenu au même angle après une rotation de 360 degrés.</p>
-<p>Par exemple, considérez la carte suivant, où l’astéroïde où se trouve la nouvelle station d’observation est notée d’un <code>X</code> :</p>
+<p>Heureusement, en plus d'un scanner à astéroïdes, la nouvelle station d'observation est par défaut déjà équipée avec un laser rotatif géant, parfait pour vaporiser des astéroïdes. Le laser commence pointé <em>vers le haut</em>, et tourne toujours <em>dans le sens horaire</em>, vaporisant chaque astéroïde qu'il frappe.</p>
+<p>Si plusieurs astéroïdes sont <em>exactement</em> alignés avec la station, le laser n'a assez de puissance que pour en vaporiser <em>un seul</em> avant de continuer sa rotation. En d'autres termes, l'astéroïde pouvant être <em>détecté</em> peut être vaporisé, mais si vaporiser un astéroïde en rend un autre détectable, l'astéroïde nouvellement détecté ne sera pas vaporisé jusqu'à ce que le laser soit revenu au même angle après une rotation de 360 degrés.</p>
+<p>Par exemple, considérez la carte suivant, où l'astéroïde où se trouve la nouvelle station d'observation est notée d'un <code>X</code> :</p>
 <pre><code>.#....#####...#..
 ##...##.#####..##
 ##...#...#.#####.
 ..#.....X...###..
 ..#.#.....#....##</code></pre>
-<p>Les neuf premiers astéroïdes à être vaporisés, dans l’ordre, seraient :</p>
+<p>Les neuf premiers astéroïdes à être vaporisés, dans l'ordre, seraient :</p>
 <pre><code>.#....###&lt;em24&lt;/em&gt;...#..
 ##...##.&lt;em13&lt;/em&gt;#&lt;em&gt;67&lt;/em&gt;..&lt;em&gt;9&lt;/em&gt;#
 ##...#...&lt;em&gt;5&lt;/em&gt;.&lt;em&gt;8&lt;/em&gt;####.
@@ -138,7 +138,7 @@
 .................
 ........X....&lt;em&gt;89&lt;/em&gt;..
 .................</code></pre>
-<p>Dans le grand exemple ci-dessus (celui avec le meilleur emplacement pour la station d’observation aux coordonnées <code>11,13</code>) :</p>
+<p>Dans le grand exemple ci-dessus (celui avec le meilleur emplacement pour la station d'observation aux coordonnées <code>11,13</code>) :</p>
 <ul>
 <li>Le 1er astéroïde à être vaporisé serait aux coordonnées <code>11,12</code>.</li>
 <li>Le 2ème astéroïde à être vaporisé serait aux coordonnées <code>12,1</code>.</li>
@@ -152,7 +152,7 @@
 <li>Le 201ème astéroïde à être vaporisé serait aux coordonnées <code>10,9</code>.</li>
 <li>Le 299ème et dernier astéroïde à être vaporisé serait aux coordonnées <code>11,1</code>.</li>
 </ul>
-<p>Les elfes placent leur paris sur quel astéroïde sera le <em>200ème</em> à se faire vaporiser. Gagnez le pari en déterminant lequel sera cet astéroïde. <em>Qu’obtenez-vous si vous multipliez sa position X par <code>100</code> et y ajoutez sa position Y ?</em> (par exemple, <code>8,2</code> devient <code>802</code>.)</p>
+<p>Les elfes placent leur paris sur quel astéroïde sera le <em>200ème</em> à se faire vaporiser. Gagnez le pari en déterminant lequel sera cet astéroïde. <em>Qu'obtenez-vous si vous multipliez sa position X par <code>100</code> et y ajoutez sa position Y ?</em> (par exemple, <code>8,2</code> devient <code>802</code>.)</p>
 </section> 
 </body> 
 </html> 
