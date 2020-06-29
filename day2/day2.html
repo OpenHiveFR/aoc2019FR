@@ -21,17 +21,18 @@
 99,
 30,40,50</code></pre>
 <p>Les premiers nombres, <code>1,9,10,3</code>, sont aux positions <code>0</code>, <code>1</code>, <code>2</code> et <code>3</code>. Ensemble, ils représentent le premier opcode (<code>1</code>, l'addition), les positions de deux entrées (<code>9</code> et <code>10</code>), et la position de la sortie (<code>3</code>). Pour gérer cet opcode, vous devez tout d'abord récupérer les valeurs situées aux positions d'entrées : Ici, la position <code>9</code> contient la valeur <code>30</code>, et la position <code>10</code> contient la valeur <code>40</code>. <em>Additionnez</em> ces nombres pour obtenir <code>70</code>. Enfin, stockez cette valeur finale dans la position de sortie. Ici, la position de sortie, donnée par le nombre en position <code>3</code>, est <code>3</code>, et va donc être écrasée par le résultat. À la fin de cette opération, le code ressemble à ceci :</p>
-<pre class="intcode"><code>1,9,10,&lt;em&gt;70&lt;/em&gt;,
+<pre class="Intcode"><code>1,9,10,<em>70</em>,
 2,3,11,0,
 99,
 30,40,50</code></pre>
 <p>Avancez de <code>4</code> positions pour atteindre le prochain opcode, <code>2</code>. Cet opcode fonctionne comme le précédent, mais multiplies au lieu d'additionner. Les entrées sont aux positions <code>3</code> et <code>11</code>, et correspondent respectivement aux valeurs <code>70</code> et <code>50</code>. Multiplier ces deux valeurs donne <code>3500</code>. Le résultat est stockée en position <code>0</code>. Le code ressemble alors à ceci :</p>
-<pre class="intcode"><code>&lt;em&gt;3500&lt;/em&gt;,9,10,70,
+<pre class="Intcode"><code><em>3500</em>,9,10,70,
 2,3,11,0,
 99,
-30,40,50</code></pre>
+30,40,50
+</code></pre>
 <p>Avancer encore une fois de <code>4</code> positions vous fait rencontrer l'opcode <code>99</code>, ce qui stoppe le programme.</p>
-<p>Voici les états initiaux et finaux de quelques petits programmes supplémentaires : - <code>1,0,0,0,99</code> devient <code>&lt;em&gt;2&lt;/em&gt;,0,0,0,99</code> (<code>1 + 1 = 2</code>). - <code>2,3,0,3,99</code> devient <code>2,3,0,&lt;em&gt;6&lt;/em&gt;,99</code> (<code>3 * 2 = 6</code>). - <code>2,4,4,5,99,0</code> devient <code>2,4,4,5,99,&lt;em&gt;9801&lt;/em&gt;</code> (<code>99 * 99 = 9801</code>) - <code>1,1,1,4,99,5,6,0,99</code> devient <code>&lt;em&gt;30&lt;/em&gt;,1,1,4,&lt;em&gt;2&lt;/em&gt;,5,6,0,99</code>.</p>
+<p>Voici les états initiaux et finaux de quelques petits programmes supplémentaires : - <code>1,0,0,0,99</code> devient <code><em>2</em>,0,0,0,99</code> (<code>1 + 1 = 2</code>). - <code>2,3,0,3,99</code> devient <code>2,3,0,<em>6</em>,99</code> (<code>3 * 2 = 6</code>). - <code>2,4,4,5,99,0</code> devient <code>2,4,4,5,99,<em>9801</em></code> (<code>99 * 99 = 9801</code>). - <code>1,1,1,4,99,5,6,0,99</code> devient <code><em>30</em>,1,1,4,<em>2</em>,5,6,0,99</code>.</p>
 <p>Une fois que vous aurez un ordinateur en état de marche, la première chose à faire sera de restaurer le programme d'appui gravitationnel (l'entrée de votre puzzle) à l'état "Alarme de programme 1202" qu'il avait juste avant que l'ancien ordinateur ne prenne feu. Pour cela, <em>avant d'exécuter le programme</em>, remplacez la valeur en position <code>1</code> par la valeur <code>12</code> et remplacez celle en position <code>2</code> par la valeur <code>2</code>. <em>Quelle est la valeur en position <code>0</code></em> après l'arrêt du programme ?</p>
 </section> 
 <section id='translation_part_two'> 

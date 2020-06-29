@@ -56,6 +56,6 @@ Dès lors, il est possible de compter le nombre total d'orbites comme suit :
 - `L` orbite directement autour de `K` et indirectement autour de `J`, `E`, `D`, `C`, `B` et du `COM`, pour un total de `7` orbites.
 - Le `COM` n'orbite autour de rien.
 
-Le nombre total d'orbites directes et indirectes dans cet exemple est `<em>42</em>`.
+Le nombre total d'orbites directes et indirectes dans cet exemple est <code><em>42</em></code>.
 
 *Quel est le nombre total d'orbites directes et indirectes* dans les données de votre carte ?

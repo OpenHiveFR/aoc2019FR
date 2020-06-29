@@ -10,13 +10,12 @@ Votre rôle là-dedans est de trouver quel astéroïde serait le meilleur emplac
 
 Pour illustrer tout ça, prenons la carte suivante :
 
-```
-.#..#
+<pre><code>.#..#
 .....
 #####
 ....#
 ...<em>#</em>#
-```
+</code><pre>
 
 Le meilleur emplacement pour une nouvelle station d'observation sur cette carte est l'astéroïde surligné en position ``3,4`` puisqu'il peut détecter `8` astéroïdes, plus que n'importe quel autre emplacement possible (le seul astéroïde qu'il ne peut détecter est celui en position ``1,0``, sa ligne de vue étant bloquée par l'astéroïde en position ``2,2``). Tout les autres astéroïdes sont de moins bons emplacements : il ne peuvent détecter que `7` astéroïdes ou moins. Voilà le nombre d'astéroïde qu'une station d'observation sur chaque astéroïde pourrait détecter :
 
@@ -46,8 +45,7 @@ Voilà une carte comportant un astéroïde `#` et quelques exemples de manières
 Voici quelques exemples plus grands :
 
 - Le meilleur emplacement est ``5,8``, avec `33` autres astéroïdes détectés :\
-```
-......#.#.
+<pre><code>......#.#.
 #..#.#....
 ..#######.
 .#.#.###..
@@ -57,10 +55,9 @@ Voici quelques exemples plus grands :
 .##.#..###
 ##...<em>#</em>..#.
 .#....####
-```
+</code></pre>
 - Le meilleur emplacement est ``1,2``, avec `35` autres astéroïdes détectés :\
-```
-#.#...#.#.
+<pre><code>#.#...#.#.
 .###....#.
 .<em>#</em>....#...
 ##.#.#.#.#
@@ -70,10 +67,9 @@ Voici quelques exemples plus grands :
 ..##....##
 ......#...
 .####.###.
-```
+</code></pre>
 - Le meilleur emplacement est ``6,3``, avec `41` autres astéroïdes détectés :\
-```
-.#..#..###
+<pre><code>.#..#..###
 ####.###.#
 ....###.#.
 ..###.<em>#</em>#.#
@@ -83,10 +79,9 @@ Voici quelques exemples plus grands :
 #..#.#.###
 .##...##.#
 .....#.#..
-```
+</code></pre>
 - Le meilleur emplacement est ``11,13``, avec `210` autres astéroïdes détectés :\
-```
-.#..##.###...#######
+<pre><code>.#..##.###...#######
 ##.############..##.
 .#.######.########.#
 .###.#######.####.#.
@@ -106,6 +101,6 @@ Voici quelques exemples plus grands :
 .#.#.###########.###
 #.#.#.#####.####.###
 ###.##.####.##.#..##
-```
+</code></pre>
 
 Trouvez le meilleur emplacement pour une nouvelle station d'observation. *Combien d'autres astéroïdes peuvent être détectés depuis cet emplacement ?*

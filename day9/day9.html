@@ -13,7 +13,7 @@
 <p>Les paramètres en mode <code>2</code>, le <em>mode relatif</em>, se comportent d'une manière similaire aux paramètres en mode <em>positionnel</em> : le paramètre est interprété en tant que position. Comme en mode positionnel, les paramètres en mode relatif peuvent servir à lire ou à écrire en mémoire.</p>
 <p>La différence la plus importante est que les paramètre en mode relatif ne sont pas définis depuis l'adresse <code>0</code>. À la place, ils sont comptés depuis une valeur appelée <em>base relative</em>. La <em>base relative</em> démarre à <code>0</code>.</p>
 <p>L'adresse à laquelle réfère un paramètre en mode relatif est sa valeur <em>à laquelle on ajoute</em> l'actuelle <em>base relative</em>. Quand la base relative est de <code>0</code>, les paramètres modes relatif et positionnel ayant la même valeur réfèrent donc à la même adresse.</p>
-<p>Par exemple, étant donnée une base relative de <code>50</code>, un paramètre en mode relatif valant <code>-7</code> réfère à l'adresse mémoire <code>50 + (-7) = &lt;em&gt;43&lt;/em&gt;</code>.</p>
+<p>Par exemple, étant donnée une base relative de <code>50</code>, un paramètre en mode relatif valant <code>-7</code> réfère à l'adresse mémoire <code>50 + (-7) = <em>43</em></code>.</p>
 <p>La base relative est modifiée avec l'instruction <em>décalage de base relative</em> :</p>
 <ul>
 <li>L'opcode <code>9</code> <em>ajuste la base relative</em> par la valeur de son seul paramètre. La base relative augmente (ou diminue, si la valeur est négative) de la valeur du paramètre.</li>

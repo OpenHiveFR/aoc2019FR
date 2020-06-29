@@ -20,43 +20,39 @@ Par exemple, considérez la carte suivant, où l'astéroïde où se trouve la no
 
 Les neuf premiers astéroïdes à être vaporisés, dans l'ordre, seraient :
 
-```
-.#....###<em24</em>...#..
+<pre><code>.#....###<em24</em>...#..
 ##...##.<em13</em>#<em>67</em>..<em>9</em>#
 ##...#...<em>5</em>.<em>8</em>####.
 ..#.....X...###..
 ..#.#.....#....##
-```
+</code></pre>
 
 Notez que certains astéroïdes (ceux derrière les astéroïdes marqués `1`, `5` et `7`) ne seraient pas vaporisés avant la prochaine rotation complète. Le laser continuerait donc son tour : les neuf prochains à être vaporisés seraient :
 
-```
-.#....###.....#..
+<pre><code>.#....###.....#..
 ##...##...#.....#
 ##...#......<em>1234</em>.
 ..#.....X...<em>5</em>##..
 ..#.<em>9</em>.....<em>8</em>....<em>76</em>
-```
+</code></pre>
 
 Les neuf prochains seraient :
 
-```
-.<em>8</em>....###.....#..
+<pre><code>.<em>8</em>....###.....#..
 <em>56</em>...<em>9</em>#...#.....#
 <em>34</em>...<em>7</em>...........
 ..<em2</em>.....X....##..
 ..<em>1</em>..............
-```
+</code></pre>
 
 Enfin, le laser termine son premier tout complet (destructions des astéroïdes de `1` à `3`), effectue une seconde rotation complète (destruction des astéroïdes de `4` à `8`), et vaporise le dernier astéroïde (`9`) pendant sa troisième (et dernière donc) rotation :
 
-```
-......<em>234</em>.....<em6</em>..
+<pre><code>......<em>234</em>.....<em6</em>..
 ......<em>1</em>...<em>5</em>.....<em>7</em>
 .................
 ........X....<em>89</em>..
 .................
-```
+</code></pre>
 
 Dans le grand exemple ci-dessus (celui avec le meilleur emplacement pour la station d'observation aux coordonnées ``11,13``) :
 

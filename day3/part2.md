@@ -19,9 +19,9 @@ Le nombre de pas qu'un câble prends pour arriver à un endroit est le nombre to
 ...........
 ```
 
-Dans l'exemple ci-dessus, l'intersection la plus proche du port central est atteinte après ``8+5+5+2 = <em>20</em>`` pas par le premier câble et ``7+6+4+3 = <em>20</em>`` pas par le second câble, pour un total de ``20+20 = <em>40</em>`` pas.
+Dans l'exemple ci-dessus, l'intersection la plus proche du port central est atteinte après <code>8+5+5+2 = <em>20</em></code> pas par le premier câble et <code>7+6+4+3 = <em>20</em></code> pas par le second câble, pour un total de <code>20+20 = <em>40</em></code> pas.
 
-Cependant, l'intersection la plus haute est en fait la meilleure : le premier câble mets seulement ``8+5+2 = <em>15</em>`` pas et le second câble seulement ``7+6+2 = <em>15</em>`` pas pour y accéder, soit un total de seulement ``15+15 = <em>30</em>`` pas.
+Cependant, l'intersection la plus haute est en fait la meilleure : le premier câble mets seulement <code>8+5+2 = <em>15</em></code> pas et le second câble seulement <code>7+6+2 = <em>15</em></code> pas pour y accéder, soit un total de seulement <code>15+15 = <em>30</em></code> pas.
 
 Voici les meilleurs pas pour les exemple supplémentaires donnés plus tôt :
 

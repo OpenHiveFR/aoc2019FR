@@ -24,15 +24,14 @@ I)SAN
 
 Visuellement, la carte ci-dessus peut être représentée comme ceci :
 
-```
-                          <em>YOU</em>
+<pre><code>                          <em>YOU</em>
                          <em>/</em>
         G - H       <em>J - K</em> - L
        /           <em>/</em>
 COM - B - C - <em>D - E</em> - F
                \
                 <em>I - SAN</em>
-```
+</code></pre>
 
 Dans cet exemple, l'objet `YOU` (d'où vous démarrez) orbite autour de `K`, et `SAN` (où vous souhaitez vous rendre) orbite autour de `I`. Pour vous déplacer de `K` à `I`, un minimum de `4` orbites sont requises :
 
@@ -43,14 +42,13 @@ Dans cet exemple, l'objet `YOU` (d'où vous démarrez) orbite autour de `K`, et 
 
 Après votre déplacement, la carte orbitale ressemblera à ceci :
  
-```
-        G - H       J - K - L
+<pre><code>        G - H       J - K - L
        /           /
 COM - B - C - D - E - F
                \
                 I - SAN
                  <em>\</em>
                   <em>YOU</em>
-```
+</code></pre>
 
 *Quel est le nombre minimum de transferts orbitaux requis* pour vous déplacer de l'objet orbité par `YOU` à celui orbité par `SAN` (Entre les objets orbités par `YOU` et `SAN`, *pas* directement entre `YOU` et `SAN`) ?

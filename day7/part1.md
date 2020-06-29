@@ -29,16 +29,16 @@ Par exemple, supposez que vous souhaitez essayer la séquence de paramètres de 
 Le signal de sortie final de l'amplificateur `E` serait celui envoyé aux propulseurs. Cependant, cette séquence de paramètres de phase pourrait ne pas être la meilleure, une autre pourrait produire un signal final plus élevé à envoyer aux propulseurs.
 
 Voici quelques exemples de programmes :
-- Le signal maximal vers les propulseurs est `<em>43210</em>` (séquence de phase : ``4,3,2,1,0``) :\
+- Le signal maximal vers les propulseurs est <code><em>43210</em></code> (séquence de phase : ``4,3,2,1,0``) :\
 ```Intcode
 3,15,3,16,1002,16,10,16,1,16,15,15,4,15,99,0,0
 ```
-- Le signal maximal vers les propulseurs est `<em>54321</em>` (séquence de phase : ``0,1,2,3,4``) :\
+- Le signal maximal vers les propulseurs est <code><em>54321</em></code> (séquence de phase : ``0,1,2,3,4``) :\
 ```Intcode
 3,23,3,24,1002,24,10,24,1002,23,-1,23,
 101,5,23,23,1,24,23,23,4,23,99,0,0
 ```
-- Le signal maximal vers les propulseurs est `<em>65210</em>` (séquence de phase : ``1,0,4,3,2``) :\
+- Le signal maximal vers les propulseurs est <code><em>65210</em></code> (séquence de phase : ``1,0,4,3,2``) :\
 ```Intcode
 3,31,3,32,1002,32,10,32,1001,31,-2,31,1007,31,0,33,
 1002,33,7,33,1,33,31,31,1,32,31,31,4,31,99,0,0,0

@@ -25,17 +25,18 @@ Couche 2 : 789
 <p>Maintenant, vous êtes prêt à décoder l'image. L'image est rendue en empilant les couches (en alignant les pixels de même position sur chaque couche). Les chiffres indiquent la couleur du pixel : <code>0</code> corresponds au noir, <code>1</code> corresponds au blanc, et <code>2</code> corresponds à de la transparence.</p>
 <p>Les couches sont rendues avec la première couche devant et la dernière couche en arrière-plan. Donc si une position donnée est transparente sur la première et la deuxième couche, noire sur la troisième et blanche sur la quatrième, l'image finale aura un pixel <em>noir</em> à cette position.</p>
 <p>Par exemple, admettant une image de <code>2</code> pixels de long sur <code>2</code> pixels de haut, les données d'images <code>0222112222120000</code> correspondent à l'image suivante :</p>
-<pre><code>Layer 1: &lt;em&gt;0&lt;/em&gt;2
+<pre><code>Layer 1: <em>0</em>2
          22
 
-Layer 2: 1&lt;em&gt;1&lt;/em&gt;
+Layer 2: 1<em>1</em>
          22
 
 Layer 3: 22
-         &lt;em&gt;1&lt;/em&gt;2
+         <em>1</em>2
 
 Layer 4: 00
-         0&lt;em&gt;0&lt;/em&gt;</code></pre>
+         0<em>0</em>
+</code></pre>
 <p>Ensuite, l'image complète peut être trouvée en déterminant le pixel "le plus haut de la pile" à chaque position :</p>
 <ul>
 <li>Le pixel supérieur-gauche est <em>noir</em> puisque la couche du dessus (première couche) y est à <code>0</code>.</li>

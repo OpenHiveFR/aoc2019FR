@@ -14,7 +14,7 @@ La différence la plus importante est que les paramètre en mode relatif ne sont
 
 L'adresse à laquelle réfère un paramètre en mode relatif est sa valeur *à laquelle on ajoute* l'actuelle *base relative*. Quand la base relative est de `0`, les paramètres modes relatif et positionnel ayant la même valeur réfèrent donc à la même adresse.
 
-Par exemple, étant donnée une base relative de `50`, un paramètre en mode relatif valant `-7` réfère à l'adresse mémoire ``50 + (-7) = <em>43</em>``.
+Par exemple, étant donnée une base relative de `50`, un paramètre en mode relatif valant `-7` réfère à l'adresse mémoire <code>50 + (-7) = <em>43</em></code>.
 
 La base relative est modifiée avec l'instruction *décalage de base relative* :
 

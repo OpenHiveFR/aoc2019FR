@@ -92,16 +92,15 @@ pos=<x= 2, y= 0, z= 4>, vel=<x= 1, y=-1, z=-1>
 
 Ensuite, il pourrait se révéler utile de calculer *l'énergie totale du système*. L'énergie totale d'une seule lune est son *énergie potentielle* multipliée par *son énergie cinétique*. L'*énergie potentielle* d'une lune est la somme des [valeurs absolues](https://fr.wikipedia.org/wiki/Valeur_absolue) de ces coordonnées de position `x`, `y` et `z`. L'*énergie cinétique* d'une lune est la somme des valeurs absolues des valeurs `x`, `y` et `z` de sa vélocité. Ci-dessous, chaque ligne montre les calculs des énergiespotentielle (`pot`), cinétique (`cin`) et totale (`total`) pour les quatre lunes de l'exemple du dessus :
 
-```
-Énergie après 10 étapes :
+<pre><code>Énergie après 10 étapes :
 pot : 2 + 1 + 3 =  6;   cin : 3 + 2 + 1 = 6;   total :  6 * 6 = 36
 pot : 1 + 8 + 0 =  9;   cin : 1 + 1 + 3 = 5;   total :  9 * 5 = 45
 pot : 3 + 6 + 1 = 10;   cin : 3 + 2 + 3 = 8;   total : 10 * 8 = 80
 pot : 2 + 0 + 4 =  6;   cin : 1 + 1 + 1 = 3;   total :  6 * 3 = 18
 Somme d'énergie totale : 36 + 45 + 80 + 18 = <em>179</em>
-```
+</code></pre>
 
-Pour l'exemple ci-dessus, additionner les énergies totales de toutes les lunes après 10 étapes donne l'énergie totale du système, `<em>179</em>`.
+Pour l'exemple ci-dessus, additionner les énergies totales de toutes les lunes après 10 étapes donne l'énergie totale du système, <code><em>179</em></code>.
 
 Voici un second exemple :
 
@@ -114,8 +113,7 @@ Voici un second exemple :
 
 Notons le résultat simulation toutes les 10 étapes pendant 100 étapes :
 
-```
-Après 0 étapes:
+<pre><code>Après 0 étapes:
 pos=<x= -8, y=-10, z=  0>, vel=<x=  0, y=  0, z=  0>
 pos=<x=  5, y=  5, z= 10>, vel=<x=  0, y=  0, z=  0>
 pos=<x=  2, y= -7, z=  3>, vel=<x=  0, y=  0, z=  0>
@@ -187,6 +185,6 @@ pot : 13 + 16 +  3 = 32;   cin : 3 + 11 + 5 = 19;   total : 32 * 19 = 608
 pot : 29 + 11 +  1 = 41;   cin : 3 +  7 + 4 = 14;   total : 41 * 14 = 574
 pot : 16 + 13 + 23 = 52;   cin : 7 +  1 + 1 =  9;   total : 52 *  9 = 468
 Somme d'énergie totale : 290 + 608 + 574 + 468 = <em>1940</em>
-```
+</code></pre>
 
 *Quelle est l'énergie totale dans le système* après avoir simulé le mouvement des lunes données par votre scan pendant `1000` pas ?

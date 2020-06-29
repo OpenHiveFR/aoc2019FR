@@ -6,8 +6,7 @@ Les couches sont rendues avec la première couche devant et la dernière couche 
 
 Par exemple, admettant une image de `2` pixels de long sur `2` pixels de haut, les données d'images `0222112222120000` correspondent à l'image suivante :
 
-```
-Layer 1: <em>0</em>2
+<pre><code>Layer 1: <em>0</em>2
          22
 
 Layer 2: 1<em>1</em>
@@ -18,7 +17,7 @@ Layer 3: 22
 
 Layer 4: 00
          0<em>0</em>
-```
+</code></pre>
 
 Ensuite, l'image complète peut être trouvée en déterminant le pixel "le plus haut de la pile" à chaque position :
 

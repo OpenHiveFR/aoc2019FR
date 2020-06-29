@@ -11,11 +11,9 @@
 <p>La carte indique pour chaque emplacement s'il est vide (<code>.</code>) ou s'il contient un astéroïde (<code>#</code>). Les astéroïdes sont bien plus petits que leurs représentations sur la carte, et chacun des astéroïdes est positionné exactement au centre de la position où il a été marqué. Les astéroïdes peuvent être de décrits par des coordonnées <code>X,Y</code>où <code>X</code> est la distance depuis la bordure gauche et <code>Y</code> la distance depuis la bordure haute (donc le coin supérieur-gauche est aux coordonnées <code>0,0</code> et la position immédiatement à sa droite est <code>1,0</code>).</p>
 <p>Votre rôle là-dedans est de trouver quel astéroïde serait le meilleur emplacement pour construire une <em>nouvelle station d'observation</em>. Une station d'observation est capable de <em>détecter</em> tout astéroïde avec lequel elle a une <em>ligne de vue directe</em>, c'est-à-dire sans autre astéroïde <em>exactement</em> entre eux. Cette ligne de vue peut être de n'importe quel angle, pas seulement les lignes de la grille ou en diagonale. Le <em>meilleur</em> emplacement est l'astéroïde permettant de <em>détecter</em> le plus grand nombre d'autres astéroïdes.</p>
 <p>Pour illustrer tout ça, prenons la carte suivante :</p>
-<pre><code>.#..#
-.....
-#####
-....#
-...&lt;em&gt;#&lt;/em&gt;#</code></pre>
+<pre>
+<code>.#..# ..... ##### ....# ...<em>#</em># </code>
+<pre>
 <p>Le meilleur emplacement pour une nouvelle station d'observation sur cette carte est l'astéroïde surligné en position <code>3,4</code> puisqu'il peut détecter <code>8</code> astéroïdes, plus que n'importe quel autre emplacement possible (le seul astéroïde qu'il ne peut détecter est celui en position <code>1,0</code>, sa ligne de vue étant bloquée par l'astéroïde en position <code>2,2</code>). Tout les autres astéroïdes sont de moins bons emplacements : il ne peuvent détecter que <code>7</code> astéroïdes ou moins. Voilà le nombre d'astéroïde qu'une station d'observation sur chaque astéroïde pourrait détecter :</p>
 <pre><code>.7..7
 .....
@@ -36,8 +34,7 @@
 <p>Voici quelques exemples plus grands :</p>
 <ul>
 <li>Le meilleur emplacement est <code>5,8</code>, avec <code>33</code> autres astéroïdes détectés :<br />
-</li>
-</ul>
+
 <pre><code>......#.#.
 #..#.#....
 ..#######.
@@ -46,40 +43,37 @@
 ..#....#.#
 #..#....#.
 .##.#..###
-##...&lt;em&gt;#&lt;/em&gt;..#.
-.#....####</code></pre>
-<ul>
+##...<em>#</em>..#.
+.#....####
+</code></pre></li>
 <li>Le meilleur emplacement est <code>1,2</code>, avec <code>35</code> autres astéroïdes détectés :<br />
-</li>
-</ul>
+
 <pre><code>#.#...#.#.
 .###....#.
-.&lt;em&gt;#&lt;/em&gt;....#...
+.<em>#</em>....#...
 ##.#.#.#.#
 ....#.#.#.
 .##..###.#
 ..#...##..
 ..##....##
 ......#...
-.####.###.</code></pre>
-<ul>
+.####.###.
+</code></pre></li>
 <li>Le meilleur emplacement est <code>6,3</code>, avec <code>41</code> autres astéroïdes détectés :<br />
-</li>
-</ul>
+
 <pre><code>.#..#..###
 ####.###.#
 ....###.#.
-..###.&lt;em&gt;#&lt;/em&gt;#.#
+..###.<em>#</em>#.#
 ##.##.#.#.
 ....###..#
 ..#.#..#.#
 #..#.#.###
 .##...##.#
-.....#.#..</code></pre>
-<ul>
+.....#.#..
+</code></pre></li>
 <li>Le meilleur emplacement est <code>11,13</code>, avec <code>210</code> autres astéroïdes détectés :<br />
-</li>
-</ul>
+
 <pre><code>.#..##.###...#######
 ##.############..##.
 .#.######.########.#
@@ -93,13 +87,15 @@
 ..######..##.#######
 ####.##.####...##..#
 .#####..#.######.###
-##...#.####&lt;em&gt;#&lt;/em&gt;#####...
+##...#.####<em>#</em>#####...
 #.##########.#######
 .####.#.###.###.#.##
 ....##.##.###..#####
 .#.#.###########.###
 #.#.#.#####.####.###
-###.##.####.##.#..##</code></pre>
+###.##.####.##.#..##
+</code></pre></li>
+</ul>
 <p>Trouvez le meilleur emplacement pour une nouvelle station d'observation. <em>Combien d'autres astéroïdes peuvent être détectés depuis cet emplacement ?</em></p>
 </section> 
 <section id='translation_part_two'> 
@@ -115,29 +111,33 @@
 ..#.....X...###..
 ..#.#.....#....##</code></pre>
 <p>Les neuf premiers astéroïdes à être vaporisés, dans l'ordre, seraient :</p>
-<pre><code>.#....###&lt;em24&lt;/em&gt;...#..
-##...##.&lt;em13&lt;/em&gt;#&lt;em&gt;67&lt;/em&gt;..&lt;em&gt;9&lt;/em&gt;#
-##...#...&lt;em&gt;5&lt;/em&gt;.&lt;em&gt;8&lt;/em&gt;####.
+<pre><code>.#....###<em24</em>...#..
+##...##.<em13</em>#<em>67</em>..<em>9</em>#
+##...#...<em>5</em>.<em>8</em>####.
 ..#.....X...###..
-..#.#.....#....##</code></pre>
+..#.#.....#....##
+</code></pre>
 <p>Notez que certains astéroïdes (ceux derrière les astéroïdes marqués <code>1</code>, <code>5</code> et <code>7</code>) ne seraient pas vaporisés avant la prochaine rotation complète. Le laser continuerait donc son tour : les neuf prochains à être vaporisés seraient :</p>
 <pre><code>.#....###.....#..
 ##...##...#.....#
-##...#......&lt;em&gt;1234&lt;/em&gt;.
-..#.....X...&lt;em&gt;5&lt;/em&gt;##..
-..#.&lt;em&gt;9&lt;/em&gt;.....&lt;em&gt;8&lt;/em&gt;....&lt;em&gt;76&lt;/em&gt;</code></pre>
+##...#......<em>1234</em>.
+..#.....X...<em>5</em>##..
+..#.<em>9</em>.....<em>8</em>....<em>76</em>
+</code></pre>
 <p>Les neuf prochains seraient :</p>
-<pre><code>.&lt;em&gt;8&lt;/em&gt;....###.....#..
-&lt;em&gt;56&lt;/em&gt;...&lt;em&gt;9&lt;/em&gt;#...#.....#
-&lt;em&gt;34&lt;/em&gt;...&lt;em&gt;7&lt;/em&gt;...........
-..&lt;em2&lt;/em&gt;.....X....##..
-..&lt;em&gt;1&lt;/em&gt;..............</code></pre>
+<pre><code>.<em>8</em>....###.....#..
+<em>56</em>...<em>9</em>#...#.....#
+<em>34</em>...<em>7</em>...........
+..<em2</em>.....X....##..
+..<em>1</em>..............
+</code></pre>
 <p>Enfin, le laser termine son premier tout complet (destructions des astéroïdes de <code>1</code> à <code>3</code>), effectue une seconde rotation complète (destruction des astéroïdes de <code>4</code> à <code>8</code>), et vaporise le dernier astéroïde (<code>9</code>) pendant sa troisième (et dernière donc) rotation :</p>
-<pre><code>......&lt;em&gt;234&lt;/em&gt;.....&lt;em6&lt;/em&gt;..
-......&lt;em&gt;1&lt;/em&gt;...&lt;em&gt;5&lt;/em&gt;.....&lt;em&gt;7&lt;/em&gt;
+<pre><code>......<em>234</em>.....<em6</em>..
+......<em>1</em>...<em>5</em>.....<em>7</em>
 .................
-........X....&lt;em&gt;89&lt;/em&gt;..
-.................</code></pre>
+........X....<em>89</em>..
+.................
+</code></pre>
 <p>Dans le grand exemple ci-dessus (celui avec le meilleur emplacement pour la station d'observation aux coordonnées <code>11,13</code>) :</p>
 <ul>
 <li>Le 1er astéroïde à être vaporisé serait aux coordonnées <code>11,12</code>.</li>

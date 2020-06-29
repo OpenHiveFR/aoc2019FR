@@ -15,7 +15,7 @@ Les programmes utilisant ces instructions seront accompagnés d'explications à 
 
 Chacun des paramètres d'une instruction est manipulé sur la base de son mode de paramètre. Pour l'instant, votre ordinateur comprends déjà le mode de paramètre `0`, *le mode positionnel*, qui conduit le paramètre a être interprété en tant que *position* : si le paramètre est `50`, sa valeur est *la valeur stockée à l'adresse mémoire `50`*. Jusqu'à maintenant, tous les paramètres ont été en mode positionnel.
 
-À partir de maintenant, votre ordinateur de bord devra également être capable de gérer le mode de paramètre `1`, *le mode immédiat*. En mode immédiat, un paramètre est interprété en tant que *valeur* : si le paramètre est `50`, sa valeur est tout simplement `<em>50</em>`.
+À partir de maintenant, votre ordinateur de bord devra également être capable de gérer le mode de paramètre `1`, *le mode immédiat*. En mode immédiat, un paramètre est interprété en tant que *valeur* : si le paramètre est `50`, sa valeur est tout simplement <code><em>50</em></code>.
 
 Les modes de paramètre sont stockés dans la même valeur que l'opcode de l'instruction. L'opcode est un nombre à deux chiffres basé uniquement sur les chiffres des unités et dizaines de cette valeur. En d'autres mots, l'opcode est les deux chiffre le plus à droite de la première valeur d'une instruction. Les modes de paramètres sont des chiffres simples, un seul par paramètre, lus de gauche à droite depuis l'opcode : le mode du premier paramètre est le chiffre des centaines, le deuxième est le chiffre des milliers, le troisième celui des dix-milliers, etc. Tout mode manquant sera considéré comme étant `0`.
 
