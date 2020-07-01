@@ -13,6 +13,7 @@ for /d %%i in (day*) do (
     echo ^<html lang='fr'^> >> "%%i".html
     echo ^<head^> >> "%%i".html
     echo ^<link rel='stylesheet' type='text/css' href='../../../../skins/sc2020-translation.css'^> >> "%%i".html
+    echo ^<meta name='day' content="%%i"^> >> "%%i".html
     echo ^</head^> >> "%%i".html
     echo ^<body^> >> "%%i".html
     echo ^<section id='translation_part_one'^> >> "%%i".html
